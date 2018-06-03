@@ -1,0 +1,22 @@
+#price {
+	float: left;
+	font-weight: 600;
+    font-size: 29px;
+    line-height: 32px;
+    color: #F6BA60;
+}
+#cart-btn {
+	float:right;
+}
+#price-box {
+	 border-width:5px;  
+    border-bottom-style:ridge;
+    border-top-style:ridge;
+}
+.row #price-box {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+#num {
+	width: 50%;
+}

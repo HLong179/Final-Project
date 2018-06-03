@@ -1,0 +1,60 @@
+{{#section 'css'}}
+<link rel="stylesheet" type="text/css" href="/assets/css/products.css">
+{{/section}}
+{{#section 'js'}}
+<script src="/assets/js/products.js"></script>
+{{/section}}
+<div class="container">
+	{{#each products}}
+			<div class="row">
+				<div class="col-xs-12 col-sm-4 col-md-5">
+					<h2 id="nametocart">{{p_name}}</h2>
+					<br>
+					<p>{{description}}</p>
+				</div>,
+				<div class="col-xs-12 col-sm-4 col-md-5">
+					<img class="cartpicture" src="/sp/{{p_id}}/wine.jpg" alt="{{Name}}">
+				</div>
+			</div>
+			<div class="row">
+				<div class="row">
+					<div id="price-box" class="col-xs-12 col-sm-4 col-md-3">
+						<div class="row">
+								<b>$ &nbsp</b>
+								<div id="price">{{price}}</div>
+						</div>
+						<button type="button" id="cart-btn" class="btn btn-info">Add to cart</button>
+						<br>
+						<br>
+						<p>
+							<form class="form-inline">
+								<div class="form-group">
+									<input type="text" id="num" value="1" >
+								</div>
+								<button id="min" type="button" class="btn btn-default">
+									<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+								</button>
+								<button id="plus" type="button" class="btn btn-default">
+									<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+								</button>
+							</form>
+						</p>
+					</div>
+					<div id="empty" class="col-xs-12 col-sm-3 col-md-3 text-center">
+					</div>
+					<div id="view-purchase" class="col-xs-12 col-sm-5 col-md-3 text-center">
+						<table class="table">
+							<tr>
+								<td><h3><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbspView(s)</h3></td>
+								<td><h3>{{n_views}}</h3></td>
+							</tr>
+							<tr>
+								<td><h3><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>&nbspPurchase(s)</h3></td>
+								<td><h3>{{n_purchases}}</h3></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			{{/each}}
+</div>

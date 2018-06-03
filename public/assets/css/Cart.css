@@ -1,0 +1,53 @@
+table {
+    empty-cells: hide;
+}
+table td{
+text-align: center;
+padding: 40px;
+}
+table th{
+    text-align: center;
+    padding: 40px;
+    }
+table img{
+        width:50%;
+        height: 50%;
+    }
+     #delete{
+        padding: 90px;
+    }
+
+#delete i{
+   font-size: 200%;
+}
+.sumary{
+    text-align: right;
+    font-weight: bold;
+}
+#sumary{
+    font-weight: bold;
+}
+#quantity1{
+    padding: 30px;
+}
+#quantity2{
+    padding: 30px;
+}
+#total1{
+    padding:40px;
+}
+#total2{
+    padding:40px;
+}   
+#price1{
+    padding:40px;
+}
+#price2{
+    padding:40px;
+}
+#name1{
+    padding:40px;
+}
+#name2{
+    padding:40px;
+}

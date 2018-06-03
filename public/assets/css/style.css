@@ -1,0 +1,166 @@
+#banner{
+    font-size: 80px;
+font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+color: grey;
+    width: 100%;
+    background-image: url("../IMG/banner3.jpg");
+}
+    #banner p{
+        color: palegoldenrod;
+        font-size: 30px;
+        margin-left: 300px;
+        margin-top: -20px;
+    }
+.row ul{
+    list-style: none;
+}
+#channel-list{
+    background-color:wheat;
+}
+.row li{
+    float: left;
+    padding: 20px 20px;
+}
+.row a{
+    text-decoration: none;
+    font-weight: bold;
+    color: grey;
+    
+}
+#box{
+    font-size: 18px;
+    padding-top: 20px;
+    padding-left: 90px;
+}
+    #box a{
+        margin-left: 10px;
+    }
+.tk{
+    width: 150%;
+    margin-left: 20px;
+    
+}
+    .tk input{
+        border-radius: 100px 100px 100px 100px;
+    }
+    .tk button{
+        border-radius: 100px 100px 100px 100px;
+    }
+@media only screen and (max-width: 600px) {
+    .tk {
+        width:100%;
+        margin-left: 0px;
+    }
+}
+.prd{
+    border:none;
+}
+    .prd:hover{
+        border: none;
+    }
+    
+
+
+ .image {
+    opacity: 1;
+    display: block;
+  }
+  
+  .prd:hover .image {
+    opacity: 0.7;
+    transform: scale(0.8);
+    transition:1s; 
+ 
+  }
+  
+  .overlay {
+    bottom: 0; 
+    /* Black see-through */
+   
+    width: 100%;
+    transition: .5s ease;
+    opacity:0;
+    color: grey;
+    font-size: 20px;
+    text-align: center;
+  }
+    .overlay .divname{
+         color:cadetblue;
+     
+        margin-top: -5%;
+    }
+    
+    .overlay .divcost{
+        font-size: 25px;
+        /* color:crimson; */
+        color: chocolate;
+        margin-top: -10%;
+    }
+    .text-right button{
+        border:1px;
+          background-color: white 
+    }
+    i button{
+        color: chocolate;
+        font-size: 20px;
+    }
+
+  .prd:hover .overlay {
+     
+    opacity: 1;
+  }
+
+
+.shopcart{
+  padding:14px;
+  width:100%;
+  height:100%;
+  background-color: whitesmoke;
+}
+a{
+    color: grey;
+    text-decoration: none;
+}
+    a:hover{
+        color: grey;
+    text-decoration: none;
+    }
+    .col-xs-15,
+    .col-sm-15,
+    .col-md-15,
+    .col-lg-15 {
+        position: relative;
+        min-height: 1px;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .col-xs-15 {
+        width: 20%;
+        float: left;
+    }
+    
+    @media (min-width: 768px) {
+    .col-sm-15 {
+            width: 20%;
+            float: left;
+        }
+    }
+    .col-md-8 input{
+        width:320px;
+        height: 30px;
+    }
+    
+    @media (min-width: 992px) {
+        .col-md-15 {
+            width: 20%;
+            float: left;
+        }
+    }
+    
+    @media (min-width: 1200px) {
+        .col-lg-15 {
+            width: 20%;
+            float: left;
+        }
+    }
+    

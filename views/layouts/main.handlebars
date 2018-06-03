@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Example App</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
+	
+	{{{_sections.css}}}
+</head>
+<body>
+	<div class="large-container">
+		<header id="banner">
+			<div>
+				&nbspFOREVAR's
+
+				<p>Bodega</p>
+			</div>
+
+		</header>
+		<div class="container">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#">Bodega</a>
+					</div>
+					<div class="collapse navbar-collapse" id="myNavbar">
+						<ul class="nav navbar-nav">
+							<li id="Home" class="active">
+								<a href="/">Home</a>
+							</li>
+						<li id="Product"> 
+							<a href="#" data-toggle="dropdown" class="dropdown-toggle" data-toggle="dropdown-toggle">
+									Products
+									<span class="glyphicon glyphicon-triangle-bottom" style="color: lightgray"></span>
+								</a>
+								<div class=" navbar-nav dropdown-menu">
+									{{#each layoutVM.color}}
+									<a id="{{color_id}}" class="producer-link" href="/products/{{color_id}}">{{color_name}}</a>
+									{{/each}}
+								</div>
+						</li>
+							<li class="navbar-nav dropdown">
+								<a href="#" data-toggle="dropdown" class="dropdown-toggle" data-toggle="dropdown-toggle">
+									Suppliers
+									<span class="glyphicon glyphicon-triangle-bottom" style="color: lightgray"></span>
+								</a>
+								<div class=" navbar-nav dropdown-menu">
+									{{#each layoutVM.brand}}
+									<a id="{{brand_id}}" class="producer-link" href="/producer/{{brand_id}}">{{brand_name}}</a>
+									{{/each}}
+								</div>
+							</li>
+							<li id="contacts">
+								<a href="/contact">Contact</a>
+							</li>
+
+						</ul>
+						<form class="navbar-form navbar-left" action="/action_page.php">
+							<div class="input-group tk">
+								<input type="text" class="form-control" placeholder="Search" name="search">
+								<div class="input-group-btn">
+									<button class="btn btn-default" type="submit">
+										<i class="glyphicon glyphicon-search"></i>
+									</button>
+								</div>
+							</div>
+						</form>
+						<ul class="nav navbar-nav navbar-right">
+							<li id="before">
+								<a href="HTML/sign-in.html">Sign In&nbsp
+									<span class="glyphicon glyphicon glyphicon-log-in"></span>
+								</a>
+
+							</li>
+							<li id="after" style="display:none" class="navbar-nav dropdown">
+								<a href="#" data-toggle="dropdown" class="dropdown-toggle" data-toggle="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Hi &nbsp<strong>Bucky</strong>!
+									<span class="glyphicon glyphicon-triangle-bottom" style="color: lightgray"></span>
+								</a>
+								<div class=" navbar-nav dropdown-menu">
+									<a href="HTML/profile.html" class="producer-link" id="profile"><span class="glyphicon glyphicon-user" style="color: lightgray"></span>&nbspMy profile</a>
+									<a href="HTML/sign-in.html" class="producer-link" id="log_out"><span class="glyphicon glyphicon-log-out" style="color: lightgray"></span>&nbspLog out</a>
+								</div>
+							</li>
+							<li class="navbar-right">
+								<button class=" btn btn-default glyphicon glyphicon-shopping-cart shopcart  "></button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+				
+
+                    {{{body}}}
+
+
+
+                    <button class="rounded btn btn-lg btn-success" onclick="topFunction()" id="myBtn" title="Go to top">
+				<span class="glyphicon glyphicon-chevron-up"></span>
+			</button>
+
+			<footer id="footer">
+				<div class="container-fluid footer-content text-left">
+
+					<div class="col-md-4 col">
+						<p>
+							<span class="glyphicon glyphicon-map-marker"></span> 227, Nguyen Van Cu, District 5, Ho Chi Minh City </p>
+						<p>
+							<span class="glyphicon glyphicon-time"></span> 9:00am-22:00pm</p>
+						<p>
+							<span class="glyphicon glyphicon-earphone"></span> (+84) 961 813 996 </p>
+						<img class="rounded" style="width:280px; height: 100px" src="/assets/IMG/dathongbao.png" alt="logo">
+					</div>
+					<div class="col-md-4 col">
+						<p class="font-weight-bold">POLICY - SERVICES</p>
+						<p>
+							<a class="footer-link" href="#"> Delivery Policy</a>
+						</p>
+						<p>
+							<a class="footer-link" href="#">Privacy Policy</a>
+						</p>
+						<p>
+							<a class="footer-link" href="#"> Refund Policy</a>
+						</p>
+
+					</div>
+					<div class="col-md-4 col">
+						<p class="font-weight-bold">PARTNER OF DELIVERY</p>
+						<img class="rounded" src="/assets/IMG/GIAOHANG-TK.png" alt="logo giao hang">
+					</div>
+
+				</div>
+				<div style="color:blue">
+					<p></p>
+					<p class="text-center">2018. Made by FOREVAR Team</p>
+				</div>
+
+
+
+			</footer>
+        </div>
+ </div>
+    
+
+
+
+<script src="/assets/jquery-3.3.1.min.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<script src="/assets/js/footer.js"></script>
+{{{_sections.js}}}
+</body>
+</html>

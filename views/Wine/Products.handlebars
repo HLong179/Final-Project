@@ -1,0 +1,46 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="/assets/css/Corazón.css"> 
+{{/section}}
+<div class="container tab-content">
+    <div class="text-center">
+        <h3>{{color_name}}</h3>
+    </div>
+    <div class="container-fluid tab-pane fade in active">
+        {{#each products}}
+        <div class="row row-margin">
+
+            <div class="col-sm-4">
+                <a href="">
+                    <img src="/sp/{{p_id}}/wine.jpg" data-toggle="tooltip" title="{{p_name}}" alt="{{p_name}}" class="img-responsive">
+                </a>
+            </div>
+            <div class="col-sm-8">
+                <h3>{{p_name}}</h3>
+                <p>{{description}}</p>
+                <a href="#">
+                    <span style="font-size: 30px;" class="glyphicon glyphicon-plus-sign"></span>
+                </a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="text-center">
+        <ul class="pagination">
+            <li>
+                <a href="#">&laquo;</a>
+            </li>
+            {{#each page_numbers}} {{#if iscurrentpage}}
+            <li class="active">
+                <a href="javascript:;">{{value}}</a>
+            </li>
+            {{else}}
+            <li>
+                <a href="?page={{value}}">{{value}}</a>
+            </li>
+            {{/if}} {{/each}}
+            <li>
+                <a href="#">&raquo;</a>
+            </li>
+        </ul>
+    </div>
+</div>
