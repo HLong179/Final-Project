@@ -3,11 +3,11 @@ exports.load = sql => {
     return new Promise((resolve, reject) => {
         var cn = mysql.createConnection({
             host: 'localhost',
-            port: 3306,
+           // port: 3306,
             user: 'root',
-            password: 'password',
+            password: '11111',
             database: 'wine',
-            insecureAuth: true
+            //insecureAuth: true
         });
 
 
@@ -18,7 +18,6 @@ exports.load = sql => {
             	reject(error);
             } else {
                 resolve(rows);
-                //console.log('succes connected!');
             }
 
             cn.end();
@@ -30,9 +29,8 @@ exports.save = sql => {
     return new Promise((resolve, reject) => {
         var cn = mysql.createConnection({
             host: 'localhost',
-            port: 3306,
             user: 'root',
-            password: 'password',
+            password: '11111',
             database: 'wine',
             insecureAuth: true
         });

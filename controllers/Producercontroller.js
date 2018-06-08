@@ -1,6 +1,7 @@
 var express= require('express');
 var winesrepo = require('../reponse/wineresp');
 var router= express.Router();
+const URL=require('url').URL;
 
 router.get('/:Id',(req,res)=>{
     var Id= req.params.Id;
@@ -25,10 +26,31 @@ router.get('/:Id',(req,res)=>{
         }
         var vm={
             products: rows,
-            page_numbers: numbers
+            page_numbers: numbers,
+            name:''
+        }
+        if(req.session.isLogged==true){
+            vm.name=req.session.user.name;
         }
         res.render('./Wine/Producer',vm);
     });
+    console.log(req.url);
+    router.get('/account/signin',(req,res)=>{
 
+        console.log(req.url);
+        res.redirect(req.url);
+    })     
 });
+
+router.get('/account/signout',(req,res)=>{
+         console.log(req.url);
+      const returnlink    = new URL(req.headers.referer).pathname;
+      
+      req.session.returnlink = returnlink;
+  
+     req.session.isLogged=false;
+    
+     res.redirect(res.session.returnlink);
+  
+  });
 module.exports= router;

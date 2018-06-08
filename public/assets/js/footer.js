@@ -18,16 +18,5 @@ var Bing= function(x){
     }
     $('#Bing'+x+'').addClass('active');
  }
-// window.onscroll = function () { scrollFunction1() };
-// function scrollFunction1() {
-//     if (document.body.scrollBottom < 20 || document.documentElement.scrollBottom < 20) {
-//         document.getElementById("myBtn0").style.display = "block";
-//     } else {
-//         document.getElementById("myBtn0").style.display = "none";
-//     }
-// }
-// function bottomFunction() {
-//     document.body.scrollBottom = 0;
-//     document.documentElement.scrollBottom = 0;
-// }
+()
 

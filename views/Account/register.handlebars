@@ -1,0 +1,153 @@
+<link rel="stylesheet" href="../assets/css/bootstrap.css">
+<link rel="stylesheet" href="../assets/css/sign-in.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+ 
+
+{{#section 'css'}}
+	<link rel="stylesheet" type="text/css" href="/assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
+{{/section}}
+
+{{#section 'js'}}
+	<script src="/assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+	<script type="text/javascript">
+		$('#date').datepicker({
+			format: 'd/m/yyyy',
+			autoclose: true
+		});
+		function validate(){
+			
+
+			var userLen=$('#username1').val().length;
+			var passLen=$('#password1').val().length;
+			var confLen=$('#confpassword').val().length;
+			var flag=true;
+			if(userLen< 5){
+				$('.userError').show();
+				flag=false;
+			}
+			else{
+				$('.userError').hide();
+				
+			}
+			if(passLen<6){
+				$('.passError').show();
+				flag=false;
+				
+
+			}
+			else{
+				$('.passError').hide();
+				
+			}	
+			if(confLen<6){
+				$('.passError1').show();
+				flag=false;
+				
+			}
+			else{
+				$('.passError1').hide();
+				
+			}
+			if(passLen==confLen&&$('#password1').val()==$('#confpassword').val()){
+				$('.passError2').hide();
+			}
+			else{
+				$('.passError2').show();
+				flag=false;
+				
+				
+			}
+			return flag;
+		}
+			
+	</script>
+{{/section}}	
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="panel panel-login">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-6">
+							<a href="signin" class="" id="login-form-link">Login</a>
+						</div>
+						<div class="col-xs-6">
+							<a href="register" class="active" id="register-form-link">Register</a>
+						</div>
+					</div>
+					<hr>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-lg-12">
+
+							<form id="register-form" action="" method="post" role="form" onSubmit="return validate();">
+								
+								{{#if showErr1}}
+								<div class="userError alert alert-danger">
+									<strong>Warning! </strong>{{errorMsg1}}
+								</div>
+
+								{{/if}}
+								<div class="form-group">
+									<input type="text" name="username1" id="username1" tabindex="1" class="form-control" placeholder="Username" required value="" >
+								</div>
+								<p id="ckUsername"></p>
+								<div class="userError alert alert-danger" style="display:none;">
+									<strong>Warning! </strong>Username's length must be larger than 5.
+								</div>
+								
+
+								
+								<div class="form-group">
+									<input type="password" name="password1" id="password1" tabindex="2" class="form-control" required placeholder="Password" >
+								</div>
+								<div class="passError alert alert-danger" style="display:none">
+									<strong>Warning!</strong> The password must be at least 6 characters.
+								</div>
+								<p class="passError2 alert alert-danger " style="display:none">Two passwords do not match</p>
+								<div class="form-group">
+									<input type="password" required name="confpassword" id="confpassword" tabindex="3" class="form-control" placeholder="Confirm Password" >
+								</div>
+								<div class="passError1 alert alert-danger" style="display:none">
+									<strong>Warning!</strong>The password must be at least 6 characters.
+								</div>
+								<p class="passError2 alert alert-danger " style="display:none">Two passwords do not match.</p>
+								
+
+								<div class="form-group">
+									<input type="text" name="fullname" id="name" placeholder="Your name" tabindex="4" required class="form-control">
+								</div>
+								<div class="form-group">
+									<input type="email" name="email" id="email" tabindex="5" class="form-control" required placeholder="Email Address" value="" >
+								</div>
+								<div class="form-group">
+									<input type="tel" name="phone" id="phone" class="form-control" tabindex="6" placeholder="Phone" value="" >
+								</div>
+								<div class="form-group">
+									<input type="text" name="date" id="date" class="form-control" tabindex="7" placeholder="d/m/yyyy">
+								</div>
+								<div class="form-group">
+									<div class="row">
+										<div class="col-sm-6 col-sm-offset-3">
+											<button type="submit" onclick="checkUserLength();" name="register-submit" id="register-submit" tabindex="8" class="form-control btn btn-register">Register</button>
+
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="../assets/jquery-3.3.1.min.js"></script>
+<script src="../assets/js/bootstrap.js"></script>
+<script src="../assets/js/sign-in.js"></script>
