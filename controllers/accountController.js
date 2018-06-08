@@ -61,7 +61,7 @@ router.get('/signout', (req, res) => {
 
 router.get('/register', (req, res) => {
     console.log('render thanh cong');
-    res.render('Account/register');
+    res.render('Account/register'); 
 });
 
 router.post('/register', (req, res) => {
@@ -76,28 +76,46 @@ router.post('/register', (req, res) => {
         dob: dob,
         permission: 0
     };
+    //var flag=true;
+    
     account.seachUsername(user).then(rows=>{
-        if(rows.length>0){
-            console.log('hhihi');
+        if(rows.length<0){
+            account.searchEmail(user).then(rows=>{
+                if(rows.length<0){
+                    account.add(user).then((value) => {
+                        console.log('Rigister success');
+                            req.session.isLogged = true;
+                            req.session.user = user;
+                            req.session.cart = []
+                            res.redirect('/');
+                    });            
+                }else{
+                    console.log('email founded');
+                    var vm={
+                        showErr2:true,
+                        errorMsg2:'Email registered.'
+                    }
+                    res.render('Account/register',vm);
+                }  
+            })
+        }else{
+            console.log('đã trùng');
             var vm={
                 showErr1:true,
                 errorMsg1:'Username exited'
             }
+
             res.render('Account/register',vm);
         }
 
     })
+   
+            
+
     
     
     
-        account.add(user).then((value) => {
-        console.log('dang ki thanh cong');
-        
-            req.session.isLogged = true;
-            req.session.user = user;
-            req.session.cart = []
-            res.redirect('/');
+       
       
-    });
 });
 module.exports = router;
