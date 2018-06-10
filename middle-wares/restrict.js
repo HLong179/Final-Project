@@ -6,3 +6,4 @@ module.exports = (req, res, next) => {
         res.redirect(`/account/login?retUrl=${req.originalUrl}`);
     }
 }
+

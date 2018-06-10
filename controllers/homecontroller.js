@@ -31,6 +31,7 @@ router.get('/productinfo/:prName',(req,res)=>{
     })
 })
 
+
 // router.get('/productinfo/:proID', (req,res)=>{
 //     var proID= req.params.proID;
 //     productrepo.loadsingle(proID).then(rows=>{

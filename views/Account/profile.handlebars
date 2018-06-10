@@ -1,1 +1,177 @@
-<h1>Hello World</h1>
+<link rel="stylesheet" href="../assets/css/bootstrap.css">
+
+
+{{#section 'css'}}
+	<link rel="stylesheet" type="text/css" href="/assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
+{{/section}}
+
+{{#section 'js'}}
+	<script src="/assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+	<script type="text/javascript">
+		$('#dob').datepicker({
+			format: 'd/m/yyyy',
+			autoclose: true
+		});
+        </script>
+{{/section}}
+
+<script type="text/javascript">
+    function validate() {
+        
+			var pass=$('#pass').val().length;
+			var confPass=$('#confPass').val().length;
+			var flag=true;
+			if(pass< 6){
+				$('.passError1').show();
+				flag=false;
+			}
+			else{
+				$('.passError1').hide();
+				
+			}
+			if(confPass<6){
+				$('.passError3').show();
+				flag=false;
+				
+
+			}
+			else{
+				$('.passError3').hide();
+				
+			}	
+			
+			if(pass==confPass&&$('#pass').val()==$('#confPass').val()){
+				$('.passError2').hide();
+			}
+			else{
+				$('.passError2').show();
+				flag=false;
+				
+				
+			}
+			return flag;
+        
+
+    }
+</script>
+<div class="container">
+    <div class="row">
+          <div class="col-md-3">
+            <ul class="nav nav-pills nav-stacked admin-menu">
+                <li class="active">
+                    <a href="#" data-target-id="profile">
+                        <i class="glyphicon glyphicon-user"></i> Profile</a>
+                </li>
+                <li>
+                    <a href="" data-target-id="change-password">
+                        <i class="glyphicon glyphicon-lock"></i> Change Password</a>
+                </li>
+                <li>
+                    <a href="" data-target-id="settings">
+                        <i class="glyphicon glyphicon-cog"></i> Settings</a>
+                </li>
+                <li>
+                    <a href="" data-target-id="logout">
+                        <i class="glyphicon glyphicon-log-out"></i> Logout</a>
+                </li>
+            </ul>
+        </div>
+        <div id="profile" class="col-md-9 admin-content">
+            {{!-- <div class="alert alert-info alert-dismissable">
+                This is an
+                <strong>.alert</strong>,Use this to show important message to the user.
+
+            </div> --}}
+            <h3>Personal Information</h3>
+            <form action="update" method="post">
+                <div class="form-group">
+                    <label for="username" class="label-control">Username</label>
+                    <input type="text" class="form-control" name="username" value="{{username}}" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="name">Full name</label>
+                    <input class=" form-control" name="name" type="text" value="{{name}}">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="email">Email</label>
+                    <input class="form-control" type="text" name="email" value="{{email}}" disabled>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="phone">Phone</label>
+                    <input class="form-control" name="phone" id="phone" type="text" value="{{phone}}">
+                </div>
+                <div class="form-group">
+                    <label class=" control-label" for="dob">Date Of Birth</label>
+                    <input class="form-control" name="dob" id="dob" type="text" value="{{dob}}">
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <span></span>
+                    <input type="reset" class="btn btn-default" value="Cancel">
+                </div>
+            </form>
+
+
+        </div>
+
+        <div id="change-password" class=" col-md-9 admin-content">
+            {{!-- <div class="alert alert-info alert-dismissable">
+                This is an
+                <strong>.alert</strong>Use this to show important message to the user.
+
+            </div> --}}
+            <form role="form" action="changepass" onsubmit="return validate();" method="post">
+                <div class="form-group">
+                    <label class="control-label" for="pass">New Password</label>
+                    <input class="form-control" id="pass" name="pass" type="password" placeholder="Enter new password">
+                </div>
+
+                <div class="passError1 alert alert-danger" style="display:none;">
+                    <strong>Warning!</strong>The password's length must be larger than 6
+                </div>
+                <p class="passError2 alert alert-danger " style="display:none"><strong>Warning</strong> Two passwords do not match</p>
+
+                <div class="form-group">
+                    <label class="control-label" for="confPass">Confirm your password</label>
+                    <input class="form-control" id="confPass" name="confPass" type="password" placeholder="Re-Enter new password">
+                </div>
+                <div class="passError3 alert alert-danger" style="display:none;">
+                    <strong>Warning!</strong>The password's length must be larger than 6
+                </div>
+                <p class="passError2 alert alert-danger " style="display:none"><strong>Warning</strong> Two passwords do not match.</p>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Save change</button>
+                    <button type="reset" class="btn btn-default">Cancel</button>
+                </div>
+
+            </form>
+
+        </div>
+
+        <div id="logout" class="col-md-9 admin-content">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    Confirm Logout.
+
+                </div>
+                <div class="panel-body">
+                    <form role="form" action="signout" method="post">
+                     Do you really want log out? 
+                    <button class="btn btn-default btn-sm">Yes</button>
+                    <button type="reset" class="btn btn-warning btn-sm">No</button>
+                    </form>
+                   
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<script src="../assets/jquery-3.3.1.min.js"></script>
+<script src="../assets/js/profile.js"></script>
+
+<script src="../assets/js/bootstrap.js"></script>

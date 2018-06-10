@@ -82,7 +82,7 @@
 					<div class="row">
 						<div class="col-lg-12">
 
-							<form id="register-form" action="" method="post" role="form" onSubmit="return validate();">
+							<form id="register-form" action="register" method="post" role="form" onSubmit="return validate();">
 								
 								{{#if showErr1}}
 								<div class="userError alert alert-danger">
@@ -91,33 +91,46 @@
 
 								{{/if}}
 								<div class="form-group">
+										<div class="input-group">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
 									<input type="text" name="username1" id="username1" tabindex="1" class="form-control" placeholder="Username" required value="" >
 								</div>
-								<p id="ckUsername"></p>
+
+								</div>
 								<div class="userError alert alert-danger" style="display:none;">
 									<strong>Warning! </strong>Username's length must be larger than 5.
 								</div>
-								
 
-								
 								<div class="form-group">
+									<div class="input-group">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 									<input type="password" name="password1" id="password1" tabindex="2" class="form-control" required placeholder="Password" >
 								</div>
-								<div class="passError alert alert-danger" style="display:none">
+								</div>
+									<div class="passError alert alert-danger" style="display:none">
 									<strong>Warning!</strong> The password must be at least 6 characters.
 								</div>
 								<p class="passError2 alert alert-danger " style="display:none">Two passwords do not match</p>
+								
+
 								<div class="form-group">
+									<div class="input-group">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 									<input type="password" required name="confpassword" id="confpassword" tabindex="3" class="form-control" placeholder="Confirm Password" >
+								</div>
+
 								</div>
 								<div class="passError1 alert alert-danger" style="display:none">
 									<strong>Warning!</strong>The password must be at least 6 characters.
 								</div>
-								<p class="passError2 alert alert-danger " style="display:none">Two passwords do not match.</p>
+								<p class="passError2 alert alert-danger " style="display:none">Two passwords do not match.</p>				
 								
 
 								<div class="form-group">
+									<div class="input-group">
+										<span class="input-group-addon"><i class=" glyphicon glyphicon-user"></i></span>
 									<input type="text" name="fullname" id="name" placeholder="Your name" tabindex="4" required class="form-control">
+									</div>
 								</div>
 
 								{{#if showErr2}}
@@ -126,13 +139,26 @@
 								</div>
 								{{/if}}
 								<div class="form-group">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
 									<input type="email" name="email" id="email" tabindex="5" class="form-control" required placeholder="Email Address" value="" >
+										
+									</div>
 								</div>
 								<div class="form-group">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
 									<input type="tel" name="phone" id="phone" class="form-control" tabindex="6" placeholder="Phone" value="" >
+										
+									</div>
 								</div>
+								
 								<div class="form-group">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
 									<input type="text" name="date" id="date" class="form-control" tabindex="7" placeholder="d/m/yyyy">
+										
+									</div>
 								</div>
 								<div class="form-group">
 									<div class="row">

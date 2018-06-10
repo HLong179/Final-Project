@@ -16,5 +16,14 @@ exports.searchEmail=user=>{
     var sql=`select * from account where email='${user.email}'`;
     return db.load(sql);
 }
+
+exports.updatePassword=user=>{
+    var sql=`update account set pass='${user.password}' where acc_id='${user.id}'`;
+    return db.load(sql);
+}
+exports.updateInfor=user=>{
+    var sql=`update account set name='${user.name}',phone='${user.phone}',dob='${user.dob}' where acc_id='${user.id}'`;
+    return db.load(sql);
+}
 // exports.add=user=>{
 //     var sql=`insert into users values(  
