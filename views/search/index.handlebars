@@ -1,0 +1,49 @@
+<div class="container text-center">
+    <h2>Search Result:</h2>
+    <br><hr>
+    
+    {{#if Products}}
+    <div class="text-center">
+        <h3>Products:</h3>
+    </div>
+    <table class="table text-center">
+        <thead >
+            <th>Name</th>
+            <th>Image</th>
+        </thead>
+        <tbody>
+            {{#each Products}}
+                <tr>
+                    <td>{{p_name}}</td>
+                    <td><a href="home/productinfo/{{p_name}}"><img src="/sp/{{p_id}}/wine.jpg" alt="{{p_name}}"></a></td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    {{/if}}
+    <br><hr><br>
+    {{#if Brands}}
+    <h3>Brands:</h3>
+    {{#each Brands}}
+    <br>
+    <div  style="font-weight:bold; size:20px; color:dodgerblue">
+        <a href="/producer/{{brand_id}}">{{brand_name}}</a>
+    </div>
+    <br>
+
+    {{/each}}
+    {{/if}}
+    <br><hr><br>
+    {{#if Colors}}
+    <h3>Colors:</h3>
+    {{#each Colors}}
+    <br>
+    <div style="font-weight:bold; size:20px; color:dodgerblue">
+        <a href="/products/{{color_id}}">{{color_name}}</a>
+    </div>
+    <br>
+    {{/each}}
+    {{/if}}
+    
+
+</div>

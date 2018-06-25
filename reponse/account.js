@@ -5,7 +5,7 @@ exports.login =user =>{
     return db.load(sql);
 }
 exports.add=user=>{
-    var sql=`insert into account(username,pass,permission,name,email,phone,dob) values('${user.username})','${user.password}','0','${user.name}','${user.email}','${user.phone}','${user.dob}')`;
+    var sql=`insert into account(username,pass,permission,name,email,phone,dob) values('${user.username}','${user.password}','0','${user.name}','${user.email}','${user.phone}','${user.dob}')`;
     return  db.save(sql);
 }
 exports.seachUsername=user=>{

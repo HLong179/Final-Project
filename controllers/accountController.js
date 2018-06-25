@@ -28,8 +28,15 @@ router.post('/signin', (req, res) => {
      
     account.login(user).then(rows => {
         if (rows.length > 0) {
+           
             req.session.isLogged = true;
             req.session.user = rows[0];
+            var check= req.session.user.permission;
+            if(check == 1)
+            {
+                req.session.isAdmin= true;
+                console.log(req.session.isAdmin);
+            }
             req.session.cart = []
             // console.log(rows[0]);
             // console.log('logn in thanh congs');
@@ -54,7 +61,7 @@ router.get('/signout', (req, res) => {
     const returnlink = new URL(req.headers.referer).pathname;
 
     req.session.returnlink = returnlink;
-
+    req.session.isAdmin=false;
     req.session.isLogged = false;
     res.redirect(returnlink);
 });
@@ -74,7 +81,7 @@ router.get('/register', (req, res) => {
 });
 
 router.post('/register', (req, res) => {
-    var dob = moment(req.body.date, 'YYYY/MM/DD').format('DD-MM-YYYY')
+    var dob = moment(req.body.date, 'DD-MM-YYYY').format('YYYY/MM/DD')
     var user = {
         username: req.body.username1,
         password: req.body.password1,

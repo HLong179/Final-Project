@@ -11,7 +11,8 @@ table th{
     }
 table img{
         width:50%;
-        height: 50%;
+        height: 60%;
+        padding-top: 20px;
     }
      #delete{
         padding: 90px;
@@ -21,33 +22,27 @@ table img{
    font-size: 200%;
 }
 .sumary{
+    
     text-align: right;
     font-weight: bold;
 }
 #sumary{
     font-weight: bold;
 }
-#quantity1{
-    padding: 30px;
+#name{
+    padding-top: 90px;
 }
-#quantity2{
-    padding: 30px;
+#quantity{
+    padding: 40px;
+    padding-top: 90px;  
 }
-#total1{
+
+#amount{
     padding:40px;
+    padding-top: 90px;  
 }
-#total2{
+  
+#price{
     padding:40px;
-}   
-#price1{
-    padding:40px;
-}
-#price2{
-    padding:40px;
-}
-#name1{
-    padding:40px;
-}
-#name2{
-    padding:40px;
+    padding-top: 90px;  
 }

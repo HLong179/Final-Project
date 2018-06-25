@@ -4,6 +4,7 @@ var exphbs_section = require('express-handlebars-sections');
 var bodyParser = require('body-parser');
 var path = require('path');
 var handleLayout= require('./middle-wares/handle_layouts');
+var checkAdmin= require('./middle-wares/checkadmin');
 
 var session=require('express-session');
 var MySQLStore=require('express-mysql-session')(session);
@@ -16,7 +17,8 @@ var contactController= require('./controllers/contactcontroller');
 var ProducerController= require('./controllers/Producercontroller');
 var ProductsController= require('./controllers/Productscontroller');
 var accountController=require('./controllers/accountController');
-
+var CartController= require('./controllers/cartController');
+var SearchController= require('./controllers/searchControllers');
 
 var app= express();
 app.engine('handlebars', exphbs({
@@ -45,6 +47,7 @@ app.use(session({
 }));
 
 app.use(handleLayout);
+app.use(checkAdmin);
 
 app.get('/', (req,res)=>{
      res.redirect('/home');
@@ -54,6 +57,8 @@ app.use('/contact',contactController);
 app.use('/producer',ProducerController);
 app.use('/products',ProductsController);
 app.use('/account',accountController);
+app.use('/cart',CartController);
+app.use('/search',SearchController);
 
 var option={
     host:'localhost',

@@ -60,7 +60,7 @@
 							</li>
 
 						</ul>
-						<form class="navbar-form navbar-left" action="/action_page.php">
+						<form class="navbar-form navbar-left" action="/search" method="POST">
 							<div class="input-group tk">
 								<input type="text" class="form-control" placeholder="Search" name="search">
 								<div class="input-group-btn">
@@ -73,24 +73,34 @@
 						<ul class="nav navbar-nav navbar-right">
 							{{#if layoutVM.isLogged}}
 							<li id="before">
-								<a href="account/profile">Hello {{name}}&nbsp
+								<a href="/account/profile">Hello {{name}}&nbsp
 									<span class="glyphicon glyphicon glyphicon-user text-success"></span>
 
 								</a>
 							</li>
 
 							<li>
-								<a href="account/signout" class="btn btn-md">
+								<a href="/account/signout" class="btn btn-md">
 									<span class="glyphicon glyphicon-log-out"></span>  Log out
 								</a>
 							</li>
 
+							<li class="navbar-right">
+								{{#if AdminVM.isAdmin}}
+								<a href="/cart/Order" title="Order List">
+								<button class=" btn btn-default glyphicon glyphicon-shopping-cart shopcart  "></button>
+								</a>
+								{{else}}
+								<a href="/cart" title="Cart">
+								<button class=" btn btn-default glyphicon glyphicon-shopping-cart shopcart  ">({{layoutVM.sumcart}})</button>
+								</a>
+								{{/if}}
 							</li>
 
 							{{else}}
 
 							<li id="before">
-								<a href="account/signin">Sign In&nbsp
+								<a href="/account/signin">Sign In&nbsp
 									<span class="glyphicon glyphicon glyphicon-log-in"></span>
 								</a>
 
@@ -109,9 +119,7 @@
 							</li>
 							{{/if}}
 
-							<li class="navbar-right">
-								<button class=" btn btn-default glyphicon glyphicon-shopping-cart shopcart  "></button>
-							</li>
+							
 						</ul>
 					</div>
 				</div>

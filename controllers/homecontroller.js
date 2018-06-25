@@ -3,6 +3,7 @@ var express= require('express');
 var router= express.Router();
 
 var productrepo= require('../reponse/prresp');
+var checkadmin= require('../middle-wares/checkadmin')
 
 router.get('/', (req,res)=>{
 
@@ -24,22 +25,16 @@ router.get('/', (req,res)=>{
 router.get('/productinfo/:prName',(req,res)=>{
     var prName= req.params.prName;
     productrepo.loadsingle(prName).then(rows=>{
-        var vm={
-            products: rows
-        }
-        res.render('./Home/productinfo',vm);
+        productrepo.ViewUpdate(prName).then((value)=>{
+            var vm={
+                products: rows
+            }
+            res.render('./Home/productinfo',vm);
+        })
     })
 })
 
 
-// router.get('/productinfo/:proID', (req,res)=>{
-//     var proID= req.params.proID;
-//     productrepo.loadsingle(proID).then(rows=>{
-//         var vm={
-//             products :rows
-//         }
-//         res.render('./Home/productinfo',vm);
-//     });
-// });
+
 
 module.exports = router;

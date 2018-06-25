@@ -1,0 +1,51 @@
+
+{{#section 'js'}}
+    <script>
+    
+      $('.Delivered').css('background-color','green');
+      $('.Delivered ').css('color','whitesmoke')
+        
+    </script>
+{{/section}}
+<div class="container">
+			<h4>ORDER LIST</h4>
+			<hr>
+		
+			
+			
+			<div class="row" id="none-empty" style="display:block;">	
+				<div  class=" table-responsive">
+				<table class="table ">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Purchaser</th>
+							<th>Date</th>
+							<th>Payment</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each list}}
+                            <tr  class="{{order_status}}">
+                                <td>{{order_id}}</td>
+                                <td>{{purchaser}}</td>
+                                <td>{{order_date}}</td>
+                                <td id="payment">{{payment}}</td>
+                                <td >
+                                    <b class="status" > {{order_status}}</b>
+                                    
+                                </td>
+                                <td>
+                                    <a title="Detail" href="/cart/Detail/{{order_id}}">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+				</table>
+			</div>
+
+			</div>
+		</div>

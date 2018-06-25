@@ -3,6 +3,12 @@
 {{/section}}
 {{#section 'js'}}
 <script src="/assets/js/products.js"></script>
+<script>
+	$('#cart-btn').click(function(){
+
+		$('.forminfo').submit();
+	})
+</script>
 {{/section}}
 <div class="container">
 	{{#each products}}
@@ -23,22 +29,23 @@
 								<b>$ &nbsp</b>
 								<div id="price">{{price}}</div>
 						</div>
+						{{#if ../layoutVM.isLogged}}
 						<button type="button" id="cart-btn" class="btn btn-info">Add to cart</button>
+						{{/if}}
 						<br>
 						<br>
-						<p>
-							<form class="form-inline">
-								<div class="form-group">
-									<input type="text" id="num" value="1" >
-								</div>
-								<button id="min" type="button" class="btn btn-default">
+							<form class="form-inline forminfo" method="POST" action="/cart/add">
+								
+									<input type="text" name="getquantity" id="num" value="1">
+									<input type="hidden" name="getname" value="{{p_name}}">
+								
+								 <button id="min" type="button" class="btn btn-default">
 									<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
 								</button>
 								<button id="plus" type="button" class="btn btn-default">
 									<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-								</button>
+								</button> 
 							</form>
-						</p>
 					</div>
 					<div id="empty" class="col-xs-12 col-sm-3 col-md-3 text-center">
 					</div>

@@ -3,7 +3,7 @@ module.exports = (req, res, next) => {
         console.log('successed login');
         next();
     } else {
-        res.redirect(`/account/login?retUrl=${req.originalUrl}`);
+        res.redirect(`/account/signin?retUrl=${req.originalUrl}`);
     }
 }
 

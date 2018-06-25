@@ -1,5 +1,6 @@
 var brandrepo= require('../reponse/brandresp');
 var colorrepo= require('../reponse/colorresp');
+var cartrepo= require('../reponse/cartrepo');
 
 module.exports=(req,res,next)=>{
 
@@ -12,7 +13,8 @@ module.exports=(req,res,next)=>{
                 brand: rows1,
                 color: rows2,
                 isLogged:req.session.isLogged,
-                curUser:req.session.user
+                curUser:req.session.user,
+                sumcart: cartrepo.CountItem(req.session.cart)
             };
             next();
          });
