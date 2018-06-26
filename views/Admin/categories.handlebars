@@ -1,0 +1,65 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="/assets/css/category.css"> {{/section}} {{#section 'js'}}
+<script>
+    $('#add').click(function () {
+        $('#st').show(300);
+    })
+    $('#submit').click(function (event) {
+        var txtID = $('#ID').val();
+        var txtName = $('#Name').val();
+        if (txtID === '' || txtName === '') {
+            event.preventDefault();
+        }
+    })
+
+</script> {{/section}}
+
+<div style="text-align:center; font-size:40px; font-weight:bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">&nbspCategory List</div>
+<br>
+<br>
+<div class="center-table">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>ColorID</th>
+                <th>Color Name</th>
+                <th>Manipulation</th>
+            </tr>
+        </thead>
+        {{#each Colors}}
+        <tbody>
+            <tr>
+                <td>
+                    {{color_id}}
+                </td>
+                <td>
+                    {{color_name}}
+                </td>
+                <td>
+                    <a href="categories/UpdateColor/{{color_id}}">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                    &nbsp&nbsp&nbsp
+                    <a href="categories/DelColor/{{color_id}}">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+        {{/each}}
+    </table>
+</div>
+<div class="row text-center">
+    <button id="add" class="btn btn-success" onclick="showst">
+        <span class="glyphicon glyphicon-plus"></span>
+        <b>Add new color</b>
+    </button>
+</div>
+<br>
+<div class="row center-table" id="st" style="display:none">
+    <form method="POST">
+        <input type="text" id="ID" name="ID" placeholder="color id" maxlength="3">
+        <input type="text" id="Name" name="Name" placeholder="color name" maxlength="10">
+        <button id="submit" type="submit">Add</button>
+    </form>
+</div>

@@ -1,0 +1,108 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="/assets/css/category.css"> {{/section}} {{#section 'js'}}
+<script>
+    $('#add').click(function () {
+        $('#st').show(300);
+    })
+    $('#submit').click(function (event) {
+        var txtID = $('#ID').val();
+        var txtName = $('#Name').val();
+        var txtPrice = $('#Price').val();
+        var txtBrand = $('#Brand').val();
+        var txtColor = $('#Color').val();
+        var txtStock = $('#Stock').val();
+        var txtDescription = $('#Description').val();
+        if (txtID === '' || txtName === '' || txtPrice === '' || txtBrand === '' || txtColor === '' || txtStock === '' || txtDescription === '' || isNaN(txtPrice) || isNaN(txtStock)) {
+            event.preventDefault();
+        }
+    })
+</script> {{/section}}
+
+<div style="text-align:center; font-size:40px; font-weight:bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">&nbspProduct List</div>
+<br>
+<br>
+<div class="center-table">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Brand</th>
+                <th>Color</th>
+                <th>In Stock</th>
+                <th>Description</th>
+                <th>Manipulation</th>
+            </tr>
+        </thead>
+        {{#each Products}}
+        <tbody>
+            <tr>
+                <td>
+                    {{p_id}}
+                </td>
+                <td>
+                    {{p_name}}
+                </td>
+                <td>
+                    {{price}}
+                </td>
+                <td>
+                    {{brand_name}}
+                </td>
+                <td>
+                    {{color_name}}
+                </td>
+                <td>
+                    {{n_stock}}
+                </td>
+                <td>
+                    {{description}}
+                </td>
+                <td>
+                    <a href="products/UpdateProduct/{{p_id}}">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                    &nbsp&nbsp&nbsp
+                    <a href="products/DelProduct/{{p_id}}">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+        {{/each}}
+    </table>
+</div>
+<div class="row text-center">
+    <button id="add" class="btn btn-success" onclick="showst">
+        <span class="glyphicon glyphicon-plus"></span>
+        <b>Add new product</b>
+    </button>
+</div>
+<br>
+<div class="row center-table" id="st" style="display:none">
+    <form method="POST">
+        <input type="text" id="ID" name="ID" placeholder="product id" maxlength="3">
+        <input type="text" id="Name" name="Name" placeholder="product name" maxlength="50">
+        <input type="number" id="Price" name="Price" placeholder="price" min="1">
+        <select name="Brand" id="Brand">
+            {{#each Brands}}
+            <option value="{{brand_id}}">{{brand_name}}</option>
+            {{/each}}
+        </select>
+        <select name="Color" id="Color">
+            {{#each Colors}}
+            <option value="{{color_id}}">{{color_name}}</option>
+            {{/each}}
+        </select>
+        <input type="number" id="Stock" name="Stock" placeholder="Stock quantity" min="1">
+        <br>
+        <br>
+        <div class="text-center">
+            <textarea name="Description" id="Description" cols="50px" rows="5px" placeholder="description"></textarea>
+        </div>
+        <div class="text-center">
+            <button id="submit" type="submit">Add</button>
+        </div>
+    </form>
+</div>

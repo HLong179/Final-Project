@@ -19,6 +19,7 @@ var ProductsController= require('./controllers/Productscontroller');
 var accountController=require('./controllers/accountController');
 var CartController= require('./controllers/cartController');
 var SearchController= require('./controllers/searchControllers');
+var adminController=require('./controllers/adminController');
 
 var app= express();
 app.engine('handlebars', exphbs({
@@ -59,11 +60,12 @@ app.use('/products',ProductsController);
 app.use('/account',accountController);
 app.use('/cart',CartController);
 app.use('/search',SearchController);
+app.use('/admin',adminController);
 
 var option={
     host:'localhost',
     user:'root',
-    password:'11111',
+    password:'123456',
     database:'wine',
     createDatabaseTable:true,
     schema:{

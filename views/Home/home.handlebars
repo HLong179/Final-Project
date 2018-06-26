@@ -13,6 +13,10 @@
 	<input type="hidden" id="txtgetname" name="getname">
 	<input type="hidden" id="txtgetquantity" name="getquantity" value="1">
 </form>
+{{#if AdminVM.isAdmin}}
+	<a href="/admin"><button class="btn btn-danger">Management</button></a>
+{{/if}}
+
 <div style="text-align:center; font-size:60px; font-weight:bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">&nbsp---Store---</div>
 <br>
 <br>

@@ -1,0 +1,14 @@
+.center-pills {
+    display: flex;
+    justify-content: center;
+}
+.nav-pills a {
+    border-style: groove;
+    border-color: rgb(0, 0, 0);
+    background-color: black;
+    color: cornsilk;
+}
+.nav-pills a:hover {
+    transition: 0.5s;
+    color: black;
+}

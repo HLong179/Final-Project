@@ -5,7 +5,8 @@ var router= express.Router();
 var productrepo= require('../reponse/prresp');
 var checkadmin= require('../middle-wares/checkadmin')
 
-router.get('/', (req,res)=>{
+
+router.get('/', checkadmin, (req,res)=>{
 
     productrepo.loadFeatured().then(rows1=>{
         productrepo.loadBestSell().then(rows2=>{
@@ -33,8 +34,4 @@ router.get('/productinfo/:prName',(req,res)=>{
         })
     })
 })
-
-
-
-
 module.exports = router;
