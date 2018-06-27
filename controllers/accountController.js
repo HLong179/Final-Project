@@ -12,9 +12,9 @@ var account = require('../reponse/account');
 
 router.get('/signin', (req, res) => {
 
-    const returnlink = new URL(req.headers.referer).pathname;
+        const returnlink = new URL(req.headers.referer).pathname;
 
-    req.session.returnlink = returnlink;
+        req.session.returnlink = returnlink;
 
     res.render('Account/sign-in');
 });
@@ -40,12 +40,12 @@ router.post('/signin', (req, res) => {
             req.session.cart = []
             // console.log(rows[0]);
             // console.log('logn in thanh congs');
-            var url = '/';
+            // var url = '/';
             if (req.query.retUrl) {
                 url = req.query.retUrl;
             }
-            let returnlink = req.session.returnlink;
-            res.redirect(returnlink);
+           let returnlink = req.session.returnlink;
+            res.redirect('/');
         }
         else {
             var vm = {
@@ -58,22 +58,28 @@ router.post('/signin', (req, res) => {
 });
 
 router.get('/signout', (req, res) => {
-    const returnlink = new URL(req.headers.referer).pathname;
+   const returnlink = new URL(req.headers.referer).pathname;
 
-    req.session.returnlink = returnlink;
-    req.session.isAdmin=false;
-    req.session.isLogged = false;
-    res.redirect(returnlink);
+//    req.session.returnlink = returnlink;
+     req.session.isAdmin=false;
+     req.session.isLogged = false;
+     //req.session.user={};
+     //req.session.destroy();
+     //res.redirect('/');
+
+    //  //console.log(req.session);
+     res.redirect('account/sign-in');
 });
 
-router.post('/signout', (req, res) => {
-    const returnlink = new URL(req.headers.referer).pathname;
+// router.post('/signout', (req, res) => {
+//     // const returnlink = new URL(req.headers.referer).pathname;
 
-    req.session.returnlink = returnlink;
+//     // req.session.returnlink = returnlink;
 
-    req.session.isLogged = false;
-    res.redirect(returnlink);
-});
+//      req.session.isLogged = false;
+//  
+
+// });
 
 router.get('/register', (req, res) => {
     console.log('render thanh cong');

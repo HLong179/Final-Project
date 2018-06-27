@@ -18,3 +18,7 @@ exports.CountbyColors= Id=>{
     var sql= `select count(*) as total from product where color='${Id}'`;
     return db.load(sql);
 }
+// exports.FindSimilarProducer=(prName)=>{
+//     var sql=`select * from product where p_name='${prName}' limit 5`;
+//     return db.load(sql);
+// }

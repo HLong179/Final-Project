@@ -8,7 +8,7 @@ const URL=require('url').URL;
 router.get('/:Id',(req,res)=>{
     
     var Id= req.params.Id;
-    console.log(req.url);
+    //console.log(req.url);
     
     var page = req.query.page;
     if(!page || page<1) page=1;
@@ -32,13 +32,15 @@ router.get('/:Id',(req,res)=>{
         var vm={
             products: rows,
             page_numbers: numbers,
-            name:''
+            name:'',
+           
         }
         if(req.session.isLogged==true){
             vm.name=req.session.user.name;
 
 
         }
+       
         res.render('./Wine/Products',vm);
     });
 

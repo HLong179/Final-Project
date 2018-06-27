@@ -73,7 +73,7 @@
 						<ul class="nav navbar-nav navbar-right">
 							{{#if layoutVM.isLogged}}
 							<li id="before">
-								<a href="/account/profile">Hello {{name}}&nbsp
+								<a href="/account/profile">Hello {{name}} &nbsp
 									<span class="glyphicon glyphicon glyphicon-user text-success"></span>
 
 								</a>
@@ -88,11 +88,11 @@
 							<li class="navbar-right">
 								{{#if AdminVM.isAdmin}}
 								<a href="/cart/Order" title="Order List">
-								<button class=" btn btn-default glyphicon glyphicon-shopping-cart shopcart  "></button>
+								<button class=" btn btn-default glyphicon glyphicon-shopping-cart shopcart cart  "></button>
 								</a>
 								{{else}}
 								<a href="/cart" title="Cart">
-								<button class=" btn btn-default glyphicon glyphicon-shopping-cart shopcart  ">({{layoutVM.sumcart}})</button>
+								<button class=" btn btn-default glyphicon glyphicon-shopping-cart shopcart cart ">({{layoutVM.sumcart}})</button>
 								</a>
 								{{/if}}
 							</li>

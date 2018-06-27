@@ -1,18 +1,19 @@
 var express= require('express');
-var router= express.Router();
 var cartrepo= require('../reponse/cartrepo');
 var productrepo= require('../reponse/prresp');
 var restrict= require('../middle-wares/restrict');
 var checkAdmin= require('../middle-wares/checkadmin');
 var accountrepo= require('../reponse/account');
+var router= express.Router();
 
+const URL=require('url').URL;
 router.get('/',restrict,(req,res)=>{
     var num_quantity= cartrepo.CountQuantity(req.session.cart);
     var num_amount= cartrepo.CountAmount(req.session.cart);
     var vm={
         items: req.session.cart,
         totalquantity: num_quantity,
-        totalamount: num_amount
+        totalamount: num_amount,
     }
     res.render('cart/index',vm);
 })
@@ -23,7 +24,9 @@ router.post('/add',(req,res)=>{
         var item={
             Product: rows[0],
             quantity: +req.body.getquantity,
-            amount: rows[0].price * +req.body.getquantity
+            amount: rows[0].price * +req.body.getquantity,
+           // name:req.session.user.name
+
         };
         cartrepo.Additems(req.session.cart, item);
         res.redirect(req.headers.referer);
@@ -40,7 +43,11 @@ router.get('/Order',(req,res)=>{
     {
         cartrepo.LoadAllPurchaseOrder().then((rows)=>{
             var vm={
-                list: rows
+                list: rows,
+                name:''
+            }
+            if(req.session.isLogged==true){
+                vm.name=req.session.user.name;
             }
             res.render('cart/orderlist',vm);
         })
@@ -102,8 +109,15 @@ router.get('/Detail/:ID',(req,res)=>{
             totalamount: a,
             totalprd: b,
             ID: order_id,
-            status: stt
+            status: stt,
+            name:''
+            
+
         }
+        if(req.session.isLogged==true){
+            vm.name=req.session.user.name;
+        }
+        
         res.render('cart/detail',vm);
        })
       

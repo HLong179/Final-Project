@@ -63,5 +63,40 @@
 					</div>
 				</div>
 			</div>
+			
+
+
 			{{/each}}
+
+			<div class="row">
+				<p style="font-family: Roboto, Helvetica, Arial, sans-serif; font-weight: 400px;color:#333333; font-size: 18px">PRODUCTS OF THE SAME PRODUCER </p>
+
+				{{#each similarProducer}}
+				<div class="col-md-15">
+
+					<a href="/home/productinfo/{{p_name}}" class="thumbnail">
+						<img src="/sp/{{p_id}}/wine.jpg" alt={{p_name}} class="img-responsive">
+						<label style="text-align:center;width:100%; font-size:15px; ">{{p_name}}</label>
+
+
+					</a>
+				</div>
+
+				{{/each}}
+			</div>
+			<div class="row">
+				<p style="font-family: Roboto, Helvetica, Arial, sans-serif; font-weight: 400px;color:#333333; font-size: 18px">PRODUCTS OF THE SAME BRAND </p>
+				{{#each similarBrand }}
+				<div class="col-md-15">
+					<a href="" class="thumbnail">
+					<img src="/sp/{{p_id}}/wine.jpg" alt="hgh" class="img-responsive">
+					<label style="text-align:center;width:100%; font-size:15px; ">{{p_name}}</label>
+					</a>
+
+				</div>
+				
+				{{/each}}
+
+			</div>
+			
 </div>

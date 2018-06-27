@@ -74,9 +74,10 @@ label {
   height: 178.08px;
   margin-bottom: 70px;
 }
-/* span.glyphicon-user{
-    font-size: 1.2em;
-} */
-/* span.right-span{
-    left: 5px;
-} */
+
+.cart{
+    margin-top:-12px;
+    height: 35px;
+    padding: 12px;
+    padding-bottom: 25px;
+}

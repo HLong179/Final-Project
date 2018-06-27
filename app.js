@@ -65,7 +65,7 @@ app.use('/admin',adminController);
 var option={
     host:'localhost',
     user:'root',
-    password:'123456',
+    password:'11111',
     database:'wine',
     createDatabaseTable:true,
     schema:{
