@@ -68,7 +68,7 @@ color: grey;
   
   .prd:hover .image {
     opacity: 0.7;
-    transform: scale(0.8);
+    transform: scale(0.9);
     transition:1s; 
  
   }

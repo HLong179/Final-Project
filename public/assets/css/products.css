@@ -20,3 +20,14 @@
 #num {
 	width: 50%;
 }
+ .thumbnail{
+	 border:none;
+	 opacity: 1;
+ }
+
+ .thumbnail:hover{
+	 opacity: 1.1;
+	 transform: scale(1.1);
+	 transition:1s; 
+  
+ }
