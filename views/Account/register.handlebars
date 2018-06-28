@@ -1,10 +1,7 @@
 {{#section 'css'}}
 <link rel="stylesheet" href="/assets/css/sign-in.css">
-<link rel="stylesheet" type="text/css" href="/assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
-{{/section}}
-
-{{#section 'js'}}
-<script src='https://www.google.com/recaptcha/api.js'></script> 
+<link rel="stylesheet" type="text/css" href="/assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"> {{/section}} {{#section 'js'}}
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <script src="/assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
@@ -14,8 +11,8 @@
 		format: 'd/m/yyyy',
 		autoclose: true
 	});
-	function verifyCaptcha(){
-		    document.getElementById('g-recaptcha-error').innerHTML = '';
+	function verifyCaptcha() {
+		document.getElementById('g-recaptcha-error').innerHTML = '';
 
 	}
 	function validate() {
@@ -82,7 +79,7 @@
 				<div class="panel-heading">
 					<div class="row">
 						<div class="col-xs-6">
-							<a href="signin"  id="login-form-link">Login</a>
+							<a href="signin" id="login-form-link">Login</a>
 						</div>
 						<div class="col-xs-6">
 							<a href="register" class="active" id="register-form-link">Register</a>
@@ -187,7 +184,7 @@
 									</div>
 								</div>
 								<br>
-									<div class="g-recaptcha text-center" callback="verifyCaptcha" data-sitekey="6LfVD2EUAAAAAIsiVUH0tS23kWJeE_oMzNgxQyZ5"></div>
+								<div class="g-recaptcha text-center" callback="verifyCaptcha" data-sitekey="6LfVD2EUAAAAAIsiVUH0tS23kWJeE_oMzNgxQyZ5"></div>
 								<br>
 								<div id="g-recaptcha-error"></div>
 								<div class="form-group">
@@ -198,8 +195,6 @@
 										</div>
 									</div>
 								</div>
-							
-
 							</form>
 						</div>
 					</div>

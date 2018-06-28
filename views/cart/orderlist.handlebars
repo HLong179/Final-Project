@@ -54,18 +54,13 @@
                 </thead>
                 <tbody>
                     {{#each list}}
-                    <tr class="{{order_status}}">
+                    <tr class="{{order_status}} clickable-row" data-href='/cart/Detail/{{order_id}}'>
                         <td>{{order_id}}</td>
                         <td>{{information}}</td>
                         <td>{{order_date}}</td>
                         <td id="payment">{{payment}}</td>
                         <td>
                             <b class="status"> {{order_status}}</b>
-                        </td>
-                        <td>
-                            <a title="Detail" href="/cart/Detail/{{order_id}}">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </a>
                         </td>
                     </tr>
                     {{/each}}
