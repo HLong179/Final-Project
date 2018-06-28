@@ -73,7 +73,8 @@
 						<ul class="nav navbar-nav navbar-right">
 							{{#if layoutVM.isLogged}}
 							<li id="after" class="navbar-nav dropdown">
-								<a href="#" data-toggle="dropdown" class="dropdown-toggle" data-toggle="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Hi <strong>{{name}}</strong>!
+								<a href="#" data-toggle="dropdown" class="dropdown-toggle" data-toggle="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Hi
+									<strong>{{name}}</strong>!
 									<span class="glyphicon glyphicon-triangle-bottom" style="color: lightgray"></span>
 								</a>
 								<div class=" navbar-nav dropdown-menu">
@@ -87,11 +88,13 @@
 							<li class="navbar-right">
 								{{#if AdminVM.isAdmin}}
 								<a href="/cart/Order" title="Order List">
-								<button class=" btn btn-default glyphicon glyphicon-shopping-cart shopcart cart  "></button>
+									<button class=" btn btn-default glyphicon glyphicon-shopping-cart shopcart cart  "></button>
 								</a>
 								{{else}}
 								<a href="/cart" title="Cart">
-								<button class=" btn btn-default glyphicon glyphicon-shopping-cart shopcart cart ">({{layoutVM.sumcart}})</button>
+									<button class=" btn btn-default glyphicon glyphicon-shopping-cart shopcart cart ">
+										<span class="badge">{{layoutVM.sumcart}}</span>
+									</button>
 								</a>
 								{{/if}}
 							</li>
@@ -118,7 +121,7 @@
 							</li>
 							{{/if}}
 
-							
+
 						</ul>
 					</div>
 				</div>

@@ -1,45 +1,43 @@
-$(function() {
+$(function () {
 
-    // $('#login-form-link').click(function(e) {
-    // 	$("#login-form").delay(100).fadeIn(100);
- 	// 	$("#register-form").fadeOut(100);
+	// $('#login-form-link').click(function(e) {
+	// 	$("#login-form").delay(100).fadeIn(100);
+	// 	$("#register-form").fadeOut(100);
 	// 	$('#register-form-link').removeClass('active');
 	// 	$(this).addClass('active');
 	// 	e.preventDefault();
 	// });
 	// $('#register-form-link').click(function(e) {
 	// 	$("#register-form").delay(100).fadeIn(100);
- 	// 	$("#login-form").fadeOut(100);
+	// 	$("#login-form").fadeOut(100);
 	// 	$('#login-form-link').removeClass('active');
 	// 	$(this).addClass('active');
 	// 	e.preventDefault();
 	// });
 
 });
-$('#login-submit').click(function(){
-	
-		
-	if($('#username').val()==='Bucky' && $('#password').val()==='123456')
-		{
-			
-			 parent.history.back();
-		
-			 localStorage.setItem('#before', 'clicked');
-		
-			return false;
-		}
+$('#login-submit').click(function () {
 
-	else
-	{	
-	alert('false');
-	return false;
+
+	if ($('#username').val() === 'Bucky' && $('#password').val() === '123456') {
+
+		parent.history.back();
+
+		localStorage.setItem('#before', 'clicked');
+
+		return false;
 	}
-	
-	
+
+	else {
+		alert('false');
+		return false;
+	}
+
+
 })
 
-$('#turnback').click(function(){
+$('#turnback').click(function () {
 	localStorage.setItem('#before', 'done');
-return;
+	return;
 })
 
