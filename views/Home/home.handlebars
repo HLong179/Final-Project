@@ -157,13 +157,11 @@
 <div class="container">
 	<div class="container" style="text-align:center; font-size:40px; font-weight:bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">---TopViews---</div>
 	{{#each featured_products}}
-	<div class="col-md-4 col-sm-4 prd">
-			<a  class="thumbnail  ">
+	<div class="col-md-4">
+			
 			<a href="home/productinfo/{{p_name}}" style="border:1px;">
 				<img class="image" title="Click for Details" src="/sp/{{p_id}}/wine.jpg" alt="{{Name}}">
 			</a>
-			
-			
 			<div class="overlay">
 				<div class="row">
 					<b class="divcost text-left">{{price}}$ &nbsp &nbsp</b>
@@ -178,7 +176,7 @@
 				<br>
 				<div class="divname">{{p_name}}</div>
 			</div>
-		</a>
+		
 	</div>
 	{{/each}}
 </div>
@@ -198,7 +196,8 @@
 					<b class="divcost text-left">{{price}}$ &nbsp &nbsp</b>
 					{{#if ../layoutVM.isLogged}}
 					<i class="text-right">
-							<button data-proid="{{p_name}}"  class="Addcart" title="Add to cart">+
+							<button data-proid="{{p_name}}" class="Addcart" title="Add to cart">
+								<b><span class="glyphicon glyphicon-shopping-plus"></span></b>
 								<span class="glyphicon glyphicon-shopping-cart"></span>
 							</button>
 					</i>

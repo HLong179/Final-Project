@@ -34,7 +34,7 @@ exports.UpdateStock = (pr_id, num) => {
     return db.save(sql);
 }
 exports.AddProduct = NewPr => {
-    var sql = `insert into product(p_id, p_name, price, brand, color, n_stock, description) values('${NewPr.id}','${NewPr.name}',${NewPr.price},'${NewPr.brand}','${NewPr.color}',${NewPr.stock},'${NewPr.description}')`
+    var sql = `insert into product(p_id, p_name, price, brand, color, n_views, n_purchases, n_stock, description, date_added) values('${NewPr.id}','${NewPr.name}',${NewPr.price},'${NewPr.brand}','${NewPr.color}',${0},${0},${NewPr.stock},'${NewPr.description}','${NewPr.date}')`
     return db.save(sql);
 }
 
@@ -54,13 +54,13 @@ exports.UpdateProduct = (ID, Product) => {
 }
 
 exports.FindSimilarProducer = (prName) => {
-    var sql=`select * from product where brand in (select brand from product where p_name='${prName}') limit 5 `;
+    var sql = `select * from product where brand in (select brand from product where p_name='${prName}') limit 5 `;
     // var sql = `select p_id from product where p_name='${prName}'`;
     return db.load(sql);
 }
 
 exports.FindSimilarBrand = (prName) => {
-    var sql=`select * from product where color in (select color from product where p_name='${prName}') limit 5 `;
+    var sql = `select * from product where color in (select color from product where p_name='${prName}') limit 5 `;
     // var sql = `select p_id from product where p_name='${prName}'`;
     return db.load(sql);
 }

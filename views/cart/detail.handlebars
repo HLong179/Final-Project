@@ -1,119 +1,124 @@
-{{#section 'js'}}
+{{#section 'css'}}
+<link rel="stylesheet" href="/assets/css/Cart.css"> {{/section}} {{#section 'js'}}
 <script>
-    $('#update').click(function(){
+    $('#update').click(function () {
         $('#normal').hide(200);
         $('#admin').show(300);
         $(this).hide(200);
         $('#save').show(300);
     })
 
-    $('#save').click(function(){
-        var x= document.getElementById('menustatus').value;
+    $('#save').click(function () {
+        var x = document.getElementById('menustatus').value;
         $('#txtstatus').val(x);
         $('#formstatus').submit();
     })
-</script>
-{{/section}}
+</script> {{/section}}
 
 <div class="container">
     <div class="text-center">
         <h2>ORDER DETAILS:</h2>
     </div>
-    <br><hr><br>
-    <table class="table table-bordered">
-					<thead>
-						<tr>
-                            <th>Order_ID</th>
-							<th>Product</th>
-							<th>Name</th>
-							<th>Quantity</th>
-							<th>Amount</th>
-						</tr>
-					</thead>
-                    <tbody>
-                        {{#each items}}
-                        <tr>
-                            <td>
-                                <b>{{order_id}}</b>
-                            </td>
-                            <td>
-                                <a href="/home/productinfo/{{name}}">
-									<img src="/sp/{{p_id}}/wine.jpg" alt="{{name}}">
-								</a>
-                            </td>
-                            <td>
-                                {{name}}
-                            </td>
-                            <td>
-                                {{quantity}}
-                            </td>
-                            <td class="price">
-                                {{price}}
-                            </td>
-                        </tr>
-                        {{/each}}
-                       
-                       <tr class="text-center">
-							<td rowspan="3" colspan="3">
-								<h3>TOTAL</h3>
-							</td>
-							<td rowspan="3"colspan="1" id="totalproducts">
-                                <b>
-                                    {{totalprd}}
-                                </b>
-								
-							</td>
-                            
-                            <td id="sumary" rowspan="3" colspan="1">
-                                <b>
-                                     {{totalamount}}
-                                </b>
-                               
-                            </td>
-                            
-                            
-						</tr>
-					
-                    </tbody>
-                    	<tr class="text-center" style="color:crimson; font-weight:bold">
-                            <td  rowspan="2" colspan="3">
-                                <h3>Order Status</h3>
-                            </td>
-                            {{#each status}}
-                            <td rowspan="2"  colspan="2" id="normal">
-                                <h3>{{order_status}}</h3>
-                            </td>
-                           
-                            <td rowspan="2"  colspan="2" id="admin" style="display:none">
-                                <select name="" id="menustatus">
-                                    <option value="Delivering">
-                                        Delivering
-                                        </option>
-                                    <option  value="Delivered">
-                                        Delivered
-                                    </option>
-                                </select>
-                               
-                            </td>
-                          
-                            {{/each}}
-                        </tr>
-                        
+    <br>
+    <hr>
+    <br>
+    <div class="center-table">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Order_ID</th>
+                    <th>Product</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each items}}
+                <tr>
+                    <td>
+                        <b>{{order_id}}</b>
+                    </td>
+                    <td>
+                        <a href="/home/productinfo/{{name}}">
+                            <img src="/sp/{{p_id}}/wine.jpg" alt="{{name}}">
+                        </a>
+                    </td>
+                    <td>
+                        {{name}}
+                    </td>
+                    <td>
+                        {{quantity}}
+                    </td>
+                    <td class="price">
+                        {{price}}
+                    </td>
+                </tr>
+                {{/each}}
+
+                <tr class="text-center">
+                    <td rowspan="3" colspan="3">
+                        <h3>TOTAL</h3>
+                    </td>
+                    <td rowspan="3" colspan="1" id="totalproducts">
+                        <b>
+                            {{totalprd}}
+                        </b>
+
+                    </td>
+
+                    <td id="sumary" rowspan="3" colspan="1">
+                        <b>
+                            {{totalamount}}
+                        </b>
+
+                    </td>
+
+
+                </tr>
+
+            </tbody>
+            <tr class="text-center" style="color:crimson; font-weight:bold">
+                <td rowspan="2" colspan="3">
+                    <h3>Order Status</h3>
+                </td>
+                {{#each status}}
+                <td rowspan="2" colspan="2" id="normal">
+                    <h3>{{order_status}}</h3>
+                </td>
+
+                <td rowspan="2" colspan="2" id="admin" style="display:none">
+                    <select name="" id="menustatus">
+                        <option value="Delivering">
+                            Delivering
+                        </option>
+                        <option value="Delivered">
+                            Delivered
+                        </option>
+                    </select>
+
+                </td>
+
+                {{/each}}
+            </tr>
+
         </table>
+    </div>
+    {{#if AdminVM.isAdmin}}
+    <div class="text-center">
+        <button id="update" class="btn-lg">
+            Update Order
+        </button>
+        <button id="save" type="submit" style="display:none" class="btn-lg">
+            Save
+        </button>
+        <form method="POST" action="/cart/Detail/Update/{{ID}}" id="formstatus">
+            <input type="hidden" name="getstatus" id="txtstatus">
+        </form>
+    </div>
 
-        {{#if AdminVM.isAdmin}}
-            <div class="text-center">
-                <button id="update" class="btn-lg">
-                    Update Order
-                </button>
-                <button id="save" type="submit" style="display:none" class="btn-lg">
-                    Save
-                </button>
-                <form method="POST" action="/cart/Detail/Update/{{ID}}" id="formstatus">
-                    <input type="hidden" name="getstatus" id="txtstatus" >
-                </form>
-            </div>
-
-        {{/if}}
+    {{/if}}
 </div>
-<br><hr><br>
+<br>
+<hr>
+<br>

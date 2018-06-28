@@ -68,7 +68,7 @@ router.get('/signout', (req, res) => {
      //res.redirect('/');
 
     //  //console.log(req.session);
-     res.redirect('account/sign-in');
+     res.redirect('/');
 });
 
 // router.post('/signout', (req, res) => {

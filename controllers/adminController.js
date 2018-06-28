@@ -126,6 +126,7 @@ router.get('/products', (req, res) => {
 });
 
 router.post('/products', (req, res) => {
+    var d= new Date();
     var NewPr = {
         id: req.body.ID,
         name: req.body.Name,
@@ -134,6 +135,7 @@ router.post('/products', (req, res) => {
         color: req.body.Color,
         stock: req.body.Stock,
         description: req.body.Description,
+        date: `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}`,
     }
     prresp.AddProduct(NewPr).then((value) => {
         res.redirect('back');

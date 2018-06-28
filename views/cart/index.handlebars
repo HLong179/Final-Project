@@ -16,7 +16,7 @@
 			
 				{{#if items}}
 			<div class="row" id="none-empty" style="display:block;">	
-				<div  class=" table-responsive">
+				<div  class=" table-responsive center-table">
 				<table class="table table-bordered">
 					<thead>
 						<tr>
@@ -127,7 +127,7 @@
                                     
                                     <div id="channel-list">
                                         <br>
-                                        <h4 style="margin-left: 12px;"> We Guarantue:</h4>
+                                        <h4 style="margin-left: 12px;"> Please choose one of these methods:</h4>
                                         <hr>
 										<form action="/cart/Order" id="formorder" method="POST">
 												<input type="hidden" id="getmethod" name="method">
@@ -136,7 +136,7 @@
 										
                                         <span class="glyphicon glyphicon-credit-card" style="margin-left: 25px;"></span>
                                            &nbsp Credit Card/ Debit Card
-                                           <input style="margin-left:60px;" id="Creditcard" type="radio" class="radio-btn" value="Credit Cart" name="optradio"/>
+                                           <input style="margin-left:60px;" id="Creditcard" type="radio" class="radio-btn" value="Credit Card" name="optradio"/>
                                         
 										</div>
                                         <br>
@@ -149,7 +149,7 @@
                                         <div class="row">
 											
                                             <span class="glyphicon glyphicon-user" style="margin-left: 25px;"></span>
-                                            &nbsp Shipper
+                                            &nbsp C.O.D
                                             <input style="margin-left: 160px;" id="COD" type="radio" class="radio-btn" value="Ship COD" name="optradio"/>
 											
 										</div>
@@ -188,7 +188,7 @@
 
 
 		{{else}}
-		<div class="row" id="isempty" style="background-color:orange">
+		<div class="row" id="isempty" style="background-color:rgb(228, 185, 105)">
 				<br>
 				<b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspYour shopping cart is empty.</b>
 				<br>

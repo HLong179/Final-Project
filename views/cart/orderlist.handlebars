@@ -1,51 +1,77 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="/assets/css/Cart.css"> {{/section}} {{#section 'js'}}
+<script>
 
-{{#section 'js'}}
-    <script>
-    
-      $('.Delivered').css('background-color','green');
-      $('.Delivered ').css('color','whitesmoke')
-        
-    </script>
-{{/section}}
+    $('.Delivered').css('background-color', 'green');
+    $('.Delivered ').css('color', 'whitesmoke');
+
+    jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        window.location = $(this).data("href");
+    });
+});
+</script> {{/section}}
 <div class="container">
-			<h4>ORDER LIST</h4>
-			<hr>
-		
-			
-			
-			<div class="row" id="none-empty" style="display:block;">	
-				<div  class=" table-responsive">
-				<table class="table ">
-					<thead>
-						<tr>
-							<th>ID</th>
-							<th>Purchaser</th>
-							<th>Date</th>
-							<th>Payment</th>
-							<th>Status</th>
-						</tr>
-					</thead>
-					<tbody>
-						{{#each list}}
-                            <tr  class="{{order_status}}">
-                                <td>{{order_id}}</td>
-                                <td>{{purchaser}}</td>
-                                <td>{{order_date}}</td>
-                                <td id="payment">{{payment}}</td>
-                                <td >
-                                    <b class="status" > {{order_status}}</b>
-                                    
-                                </td>
-                                <td>
-                                    <a title="Detail" href="/cart/Detail/{{order_id}}">
-                                    <span class="glyphicon glyphicon-search"></span>
-                                    </a>
-                                </td>
-                            </tr>
-                        {{/each}}
-                    </tbody>
-				</table>
-			</div>
+    <h4>ORDER LIST</h4>
+    <hr>
+    <div class="row" id="none-empty" style="display:block;">
+        <div class="center-table">
+            <table class="table table-bordered table-hover">
+                {{#if AdminVM.isAdmin}}
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Purchaser</th>
+                        <th>Date</th>
+                        <th>Payment</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each list}}
+                    <tr class="{{order_status}} clickable-row" data-href='/cart/Detail/{{order_id}}'>
+                        <td>{{order_id}}</td>
+                        <td>{{purchaser}}</td>
+                        <td>{{order_date}}</td>
+                        <td id="payment">{{payment}}</td>
+                        <td>
+                            <b class="status"> {{order_status}}</b>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+                {{else}}
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        
+                        <th>Date</th>
+                        <th>Payment</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each list}}
+                    <tr class="{{order_status}}">
+                        <td>{{order_id}}</td>
+                        
+                        <td>{{order_date}}</td>
+                        <td id="payment">{{payment}}</td>
+                        <td>
+                            <b class="status"> {{order_status}}</b>
+                        </td>
+                        <td>
+                            <a title="Detail" href="/cart/Detail/{{order_id}}">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+                {{/if}}
+                
+            </table>
+        </div>
 
-			</div>
-		</div>
+    </div>
+</div>

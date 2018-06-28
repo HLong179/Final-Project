@@ -72,17 +72,16 @@
 						</form>
 						<ul class="nav navbar-nav navbar-right">
 							{{#if layoutVM.isLogged}}
-							<li id="before">
-								<a href="/account/profile">Hello {{name}} &nbsp
-									<span class="glyphicon glyphicon glyphicon-user text-success"></span>
-
+							<li id="after" class="navbar-nav dropdown">
+								<a href="#" data-toggle="dropdown" class="dropdown-toggle" data-toggle="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Hi <strong>{{name}}</strong>!
+									<span class="glyphicon glyphicon-triangle-bottom" style="color: lightgray"></span>
 								</a>
-							</li>
-
-							<li>
-								<a href="/account/signout" class="btn btn-md">
-									<span class="glyphicon glyphicon-log-out"></span>  Log out
-								</a>
+								<div class=" navbar-nav dropdown-menu">
+									<a href="/account/profile" class="producer-link" id="profile">
+										<span class="glyphicon glyphicon-user" style="color: lightgray"></span>&nbspMy profile</a>
+									<a href="/account/signout" class="producer-link" id="log_out">
+										<span class="glyphicon glyphicon-log-out" style="color: lightgray"></span>&nbspLog out</a>
+								</div>
 							</li>
 
 							<li class="navbar-right">
