@@ -1,208 +1,208 @@
 {{#section 'css'}}
-<link rel="stylesheet" href="/assets/css/Cart.css">
-{{/section}}
-
-{{#section 'js'}}
-<script src="/assets/js/Cart.js"></script>
-{{/section}}
+<link rel="stylesheet" href="/assets/css/Cart.css"> {{/section}} {{#section 'js'}}
+<script src="/assets/js/Cart.js"></script> {{/section}}
 <form action="/cart/remove" method="POST" id="formremove">
 	<input type="hidden" name="getid" id="txtid">
 </form>
 
 <div class="container">
-			<h4>SHOPPING-CART SUMMARY</h4>
-			<hr>
-		
-			
-				{{#if items}}
-			<div class="row" id="none-empty" style="display:block;">	
-				<div  class=" table-responsive center-table">
-				<table class="table table-bordered">
-					<thead>
-						<tr>
-							<th>Product</th>
-							<th>Name</th>
-							<th>Unit Price</th>
-							<th>Quantity</th>
-							<th>Amount</th>
-						</tr>
-					</thead>
-					<tbody>
-						
+	<h4>SHOPPING-CART SUMMARY</h4>
+	<hr> {{#if items}}
+	<div class="row" id="none-empty" style="display:block;">
+		<div class=" table-responsive center-table">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Product</th>
+						<th>Name</th>
+						<th>Unit Price</th>
+						<th>Quantity</th>
+						<th>Amount</th>
+					</tr>
+				</thead>
+				<tbody>
 
-                        {{#each items}}
 
-						<tr>
-							<td>
-								<a href="home/productinfo/{{Product.p_name}}">
-									<img src="/sp/{{Product.p_id}}/wine.jpg" alt="{{Product.p_name}}">
-								</a>
-							</td>
-							<td id="name">
-								<i>
-									{{Product.p_name}}
-								</i>
-								
-							</td>
-							<td id="price">
-								{{Product.price}}
-							</td>
-							<td id="quantity">
-								
-									<b>{{quantity}}</b>
-								
-							</td>
-							<td id="amount">
-								{{amount}}
-							</td>
-							<td id="delete">
-								<button data-proid="{{Product.p_id}}" title="Delete" class="removeitem">
-									<i class="glyphicon glyphicon-trash"></i>
+					{{#each items}}
+
+					<tr>
+						<td>
+							<a href="home/productinfo/{{Product.p_name}}">
+								<img src="/sp/{{Product.p_id}}/wine.jpg" alt="{{Product.p_name}}">
+							</a>
+						</td>
+						<td id="name">
+							<i>
+								{{Product.p_name}}
+							</i>
+
+						</td>
+						<td id="price">
+							{{Product.price}}
+						</td>
+						<td id="quantity">
+
+							<b>{{quantity}}</b>
+
+						</td>
+						<td id="amount">
+							{{amount}}
+						</td>
+						<td id="delete">
+							<button data-proid="{{Product.p_id}}" title="Delete" class="removeitem">
+								<i class="glyphicon glyphicon-trash"></i>
+							</button>
+						</td>
+
+					</tr>
+					{{/each}}
+
+
+
+
+
+
+					<tr>
+						<td rowspan="3">
+							<h3>Vouchers</h3>
+							<div class="row">
+								<input type="text">
+								<button>
+									<span>OK</span>
 								</button>
-							</td>
-							
-						</tr>
-                        {{/each}}
-
-
-					
-
-
-
-						<tr>
-							<td rowspan="3">
-								<h3>Vouchers</h3>
-								<div class="row">
-									<input type="text">
-									<button>
-										<span>OK</span>
-									</button>
-								</div>
-							</td>
-							<td rowspan="1"colspan="4" class="sumary">
-								Total products
-							</td>
-							<td id="totalproducts">
-								{{totalquantity}}
-							</td>
-						</tr>
-						<tr>
-							<td rowspan="2" colspan="4" class="sumary">
-								TOTAL
-							</td>
-							<td rowspan="2" id="sumary">
-								{{totalamount}}
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-
-			</div>
-		</div>
-        <br>
-		<br>
-		<br>
-		<div class="row" style="display: inline" >
-			<i class="col-md-6 col-sm-6" style="text-align: left; font-size:18px;">
-				<span class="glyphicon glyphicon-menu-left"></span>
-				<a href="/home"><b>Continue Shopping</b></a>
-			</i>
-			<i class="col-md-6 col-sm-6" style=" text-align: right; font-size:18px;">
-				<a id="Pay" href="javascript:;"><b>Go to Payment</b></a>
-				<span class="glyphicon glyphicon-menu-right"></span>
-			</i>
+							</div>
+						</td>
+						<td rowspan="1" colspan="4" class="sumary">
+							Total products
+						</td>
+						<td id="totalproducts">
+							{{totalquantity}}
+						</td>
+					</tr>
+					<tr>
+						<td rowspan="2" colspan="4" class="sumary">
+							TOTAL
+						</td>
+						<td rowspan="2" id="sumary">
+							{{totalamount}}
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 
-
-		<div class="container paymentcontent" style="display:none">
-		 <h2 style="margin-left: 20%">Payment Method</h2>
-            <hr>
-            <br>
-            <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3">
-                            <div class="panel panel-login">
-                                <div class="panel-body">
-                                    
-                                    <div id="channel-list">
-                                        <br>
-                                        <h4 style="margin-left: 12px;"> Please choose one of these methods:</h4>
-                                        <hr>
-										<form action="/cart/Order" id="formorder" method="POST">
-												<input type="hidden" id="getmethod" name="method">
-										</form>
-                                        <div class="row">
-										
-                                        <span class="glyphicon glyphicon-credit-card" style="margin-left: 25px;"></span>
-                                           &nbsp Credit Card/ Debit Card
-                                           <input style="margin-left:60px;" id="Creditcard" type="radio" class="radio-btn" value="Credit Card" name="optradio"/>
-                                        
-										</div>
-                                        <br>
-                                        <div style="margin-left: 110px;">
-                                                <img src="/assets/IMG/CreditCard-Banner.jpg" style="width:70%; height:40% " alt="">
-                                       
-                                        </div>
-                                            <hr>
-                                        <br>
-                                        <div class="row">
-											
-                                            <span class="glyphicon glyphicon-user" style="margin-left: 25px;"></span>
-                                            &nbsp C.O.D
-                                            <input style="margin-left: 160px;" id="COD" type="radio" class="radio-btn" value="Ship COD" name="optradio"/>
-											
-										</div>
-										
-                                        <hr>
-                                    </div>
-                                    <div id="channel-list">
-                                        <br>
-                                        <span class="glyphicon glyphicon-list-alt" style="margin-left: 10px;"></span>
-                                        &nbsp &nbsp
-                                        <input type="text" placeholder="&nbsp Enter your promotion code" name="promotion" id="promotion" style="width:300px;">
-                                        <hr>
-                                    </div>
-                                    <div class="text-center">
-										<button id="confirm" class="btn-lg">
-											OK
-										</button>
-                                    <button id="order" style=" display: none;margin-left: 80%; background-color: coral" class="btn-lg">
-                                        Order
-                                    </button>
-                                    </div>
-
-                                    
-                                      
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>
 	</div>
+</div>
+<br>
+<br>
+<br>
+<div class="row" style="display: inline">
+	<i class="col-md-6 col-sm-6" style="text-align: left; font-size:18px;">
+		<span class="glyphicon glyphicon-menu-left"></span>
+		<a href="/home">
+			<b>Continue Shopping</b>
+		</a>
+	</i>
+	<i class="col-md-6 col-sm-6" style=" text-align: right; font-size:18px;">
+		<a id="Pay" href="javascript:;">
+			<b>Go to Payment</b>
+		</a>
+		<span class="glyphicon glyphicon-menu-right"></span>
+	</i>
+</div>
 
 
+<div class="container paymentcontent" style="display:none">
+	<h2 style="margin-left: 20%">Payment Method</h2>
+	<hr>
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-body">
 
+						<div id="channel-list">
+							<br>
+							<h4 style="margin-left: 12px;"> Please choose one of these methods:</h4>
+							<hr>
+							<form action="" id="formorder" method="POST">
+								<input type="hidden" id="getmethod" name="method">
+							</form>
+							<div class="row">
 
+								<span class="glyphicon glyphicon-credit-card" style="margin-left: 25px;"></span>
+								&nbsp Credit Card/ Debit Card
+								<input style="margin-left:60px;" id="Creditcard" type="radio" class="radio-btn" value="Credit Card" name="optradio" />
 
+							</div>
+							<br>
+							<div style="margin-left: 110px;">
+								<img src="/assets/IMG/CreditCard-Banner.jpg" style="width:70%; height:40% " alt="">
 
-		{{else}}
-		<div class="row" id="isempty" style="background-color:rgb(228, 185, 105)">
-				<br>
-				<b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspYour shopping cart is empty.</b>
-				<br>
-				<br>
+							</div>
+							<hr>
+							<br>
+							<div class="row">
+
+								<span class="glyphicon glyphicon-user" style="margin-left: 25px;"></span>
+								&nbsp C.O.D
+								<input style="margin-left: 160px;" id="COD" type="radio" class="radio-btn" value="Ship COD" name="optradio" />
+
+							</div>
+
+							<hr>
+						</div>
+						<div id="channel-list">
+							<br>
+							<span class="glyphicon glyphicon-list-alt" style="margin-left: 10px;"></span>
+							&nbsp &nbsp
+							<input type="text" placeholder="&nbsp Enter your promotion code" name="promotion" id="promotion" style="width:300px;">
+							<hr>
+						</div>
+						<div class="text-center">
+							<button id="confirm" class="btn-lg">
+
+								OK
+
+							</button>
+							<button id="next" class="btn-lg" style="display:none">
+								<a href="" id="genious">Next</a>
+							</button>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="row" style="display: inline" >
-			<i class="col-md-6 col-sm-6" style="text-align: left; font-size:18px;">
-				<span class="glyphicon glyphicon-menu-left"></span>
-				<a href="/home"><b>Continue Shopping</b></a>
-			</i>
-			<i class="col-md-6 col-sm-6" style=" text-align: right; font-size:18px;">
-				<a  href="/cart/Order"><b>Go to Order list</b></a>
-				<span class="glyphicon glyphicon-menu-right"></span>
-			</i>
 		</div>
-			
-		{{/if}}
+	</div>
+</div>
+
+
+
+
+
+
+
+{{else}}
+<div class="row" id="isempty" style="background-color:rgb(228, 185, 105)">
+	<br>
+	<b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspYour shopping cart is empty.</b>
+	<br>
+	<br>
+</div>
+<div class="row" style="display: inline">
+	<i class="col-md-6 col-sm-6" style="text-align: left; font-size:18px;">
+		<span class="glyphicon glyphicon-menu-left"></span>
+		<a href="/home">
+			<b>Continue Shopping</b>
+		</a>
+	</i>
+	<i class="col-md-6 col-sm-6" style=" text-align: right; font-size:18px;">
+		<a href="/cart/Order">
+			<b>Go to Order list</b>
+		</a>
+		<span class="glyphicon glyphicon-menu-right"></span>
+	</i>
+</div>
+
+{{/if}}

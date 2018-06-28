@@ -15,20 +15,19 @@ $('#confirm').click(function () {
     var y = document.getElementById("Creditcard").checked;
     if (x === true) {
         method = document.getElementById("COD").value;
+     
     }
     else {
         if (y === true) {
             method = document.getElementById("Creditcard").value;
         }
     }
-    $('#getmethod').val(method);
-    $('#order').show(300);
-    $(this).hide();
+ $('#getmethod').val(method);
+  document.getElementById('genious').href=`/cart/Payinfo/${method}`;
+   $(this).hide(300);
+   $('#next').show(300);
 })
 
 
 
-$('#order').click(function () {
-    $('#formorder').submit();
-})
 

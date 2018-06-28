@@ -66,17 +66,52 @@ router.get('/Order',(req,res)=>{
 })
 
 
+router.get('/Payinfo/:method',(req,res)=>{
+    var method= req.params.method;
+    var  vm={
+        method: method
+    }
+    if(method==='Ship COD')
+    {
+        res.render('cart/payinfo1',vm);
+    }
+    else
+    {
+        if(method==='Credit Card')
+        {
+            res.render('cart/payinfo2',vm);
+        }
+    }
 
+})
 
 router.post('/Order',(req,res)=>{
     var getmethod= req.body.method;
+    var name= req.body.name;
+    var street= req.body.street;
+    var district= req.body.district;
+    var phone= req.body.phone;
+    var province= req.body.province;
+    var ATM, Bank;
     var d= new Date();
     var id;
+    if(getmethod==='Ship COD'){
+        getinformation= `Customer:${name}-Phone:${phone}-Address:${street}/${district}/${province}`;
+    }
+    else{
+        if(getmethod==='Credit Card')
+        {
+            ATM= req.body.ATM;
+            Bank= req.body.bank;
+            getinformation= `Customer:${name}-Phone:${phone}-Address:${street}/${district}/${province}-Bank:${Bank}/Card Number:${ATM}`;
+        }
+    }
     var order={
         user: req.session.user.acc_id,
-        date: `${d.getFullYear()}/${d.getMonth()}/${d.getDate()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`,
+        date: `${d.getFullYear()}/${d.getMonth()+1}/${d.getDate()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`,
         method: getmethod,
-        status: `Delivering`
+        status: `Delivering`,
+        information: getinformation
     }
     cartrepo.AddOrder(order).then((value)=>{
         
@@ -110,8 +145,7 @@ router.get('/Detail/:ID',(req,res)=>{
             totalprd: b,
             ID: order_id,
             status: stt,
-            name:''
-            
+           
 
         }
         if(req.session.isLogged==true){

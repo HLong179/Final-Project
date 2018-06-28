@@ -22,6 +22,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Purchaser</th>
+                        <th>Information</th>
                         <th>Date</th>
                         <th>Payment</th>
                         <th>Status</th>
@@ -32,6 +33,7 @@
                     <tr class="{{order_status}} clickable-row" data-href='/cart/Detail/{{order_id}}'>
                         <td>{{order_id}}</td>
                         <td>{{purchaser}}</td>
+                        <td>{{information}}</td>
                         <td>{{order_date}}</td>
                         <td id="payment">{{payment}}</td>
                         <td>
@@ -44,6 +46,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Information</th>
                         <th>Date</th>
                         <th>Payment</th>
                         <th>Status</th>
@@ -53,7 +56,7 @@
                     {{#each list}}
                     <tr class="{{order_status}}">
                         <td>{{order_id}}</td>
-                        
+                        <td>{{information}}</td>
                         <td>{{order_date}}</td>
                         <td id="payment">{{payment}}</td>
                         <td>

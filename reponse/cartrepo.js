@@ -44,7 +44,7 @@ exports.CountAmount= cart=>{
 }
 
 exports.AddOrder= order=>{
-    var sql=`insert into  purchase_order(purchaser,order_date, payment, order_status) values(${order.user}, '${order.date}', '${order.method}', '${order.status}')`;
+    var sql=`insert into  purchase_order(purchaser,order_date, payment, order_status, information) values(${order.user}, '${order.date}', '${order.method}', '${order.status}','${order.information}')`;
     return db.save(sql);
 }
 exports.getID= order=>{

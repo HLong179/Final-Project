@@ -3,9 +3,9 @@ exports.load = sql => {
     return new Promise((resolve, reject) => {
         var cn = mysql.createConnection({
             host: 'localhost',
-           // port: 3306,
+            port: 3306,
             user: 'root',
-            password: '123456',
+            password: 'password',
             database: 'wine',
             //insecureAuth: true
         });
@@ -30,7 +30,7 @@ exports.save = sql => {
         var cn = mysql.createConnection({
             host: 'localhost',
             user: 'root',
-            password: '123456',
+            password: 'password',
             database: 'wine',
             insecureAuth: true
         });

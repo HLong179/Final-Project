@@ -1,0 +1,77 @@
+{{#section 'js'}}
+<script>
+    $('#order').click(function(){
+        $('#forminfo').submit();
+    })
+</script>
+{{/section}}
+<div class="panel panel-login inforCOD" style="background-color: wheat; ">
+	<div class="panel-body">
+
+
+		<form action="/cart/Order" method="POST" id="forminfo">
+			<h4>Enter your Information:</h4>
+			<hr>
+            <input type="hidden" name="method" id="txtmethod" value="{{method}}">
+			<div class="text-center">
+				<div class="form-group row">
+					<label class="col-md-4" style="text-align: right;" for="">Name:</label>
+					<div class="col-md-8">
+						<input type="text" name="name" placeholder=" &nbsp Your Name">
+					</div>
+				</div>
+				<br>
+				<div class="form-group row">
+					<label class="col-md-4" style="text-align: right;" for="">Phone:</label>
+					<div class="col-md-8">
+						<input type="text" name="phone" placeholder=" &nbsp Your Phone">
+					</div>
+				</div>
+				<br>
+				<div class="form-group row">
+					<label class="col-md-4" style="text-align: right;" for="">Province:</label>
+					<div class="col-md-8">
+						<input type="text" name="province" placeholder="&nbsp Your Province">
+					</div>
+				</div>
+				<br>
+				<div class="form-group row">
+					<label class="col-md-4" style="text-align: right;" for="">District:</label>
+					<div class="col-md-8">
+						<input type="text" name="district" placeholder=" &nbsp Your District">
+					</div>
+				</div>
+				<br>
+				<div class="form-group row">
+					<label class="col-md-4" style="text-align: right;" for="">Street:</label>
+					<div class="col-md-8">
+						<input type="text" name="street" placeholder=" &nbsp Your Street">
+					</div>
+				</div>
+                {{!-- {{#if !flag}}
+                <div class="form-group row">
+					<label class="col-md-4" style="text-align: right;" for="">ATM number:</label>
+					<div class="col-md-8">
+						<input type="text" name="ATM" placeholder=" &nbsp Your ATM number">
+					</div>
+				</div>
+                {{/if}} --}}
+				
+				<div class="form-group row">
+					<label class="col-md-4" style="text-align: right;" for="">Adress Type:</label>
+					<div class="col-md-7">
+						<label class="radio-inline">
+							<input type="radio" name="optradio">Company</label>
+						<label class="radio-inline">
+							<input type="radio" name="optradio">Home</label>
+					</div>
+				</div>
+			</div>
+			<hr>
+            <button id="order" style=";margin-left: 80%; background-color: coral" class="btn-lg">
+				Order
+			</button>
+		</form>
+
+	</div>
+</div>
