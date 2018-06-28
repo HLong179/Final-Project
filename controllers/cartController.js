@@ -24,8 +24,7 @@ router.post('/add',(req,res)=>{
         var item={
             Product: rows[0],
             quantity: +req.body.getquantity,
-            amount: rows[0].price * +req.body.getquantity,
-           // name:req.session.user.name
+            amount: rows[0].price * +req.body.getquantity
 
         };
         cartrepo.Additems(req.session.cart, item);
@@ -43,11 +42,7 @@ router.get('/Order',(req,res)=>{
     {
         cartrepo.LoadAllPurchaseOrder().then((rows)=>{
             var vm={
-                list: rows,
-                name:''
-            }
-            if(req.session.isLogged==true){
-                vm.name=req.session.user.name;
+                list: rows
             }
             res.render('cart/orderlist',vm);
         })
@@ -145,11 +140,6 @@ router.get('/Detail/:ID',(req,res)=>{
             totalprd: b,
             ID: order_id,
             status: stt,
-           
-
-        }
-        if(req.session.isLogged==true){
-            vm.name=req.session.user.name;
         }
         
         res.render('cart/detail',vm);
