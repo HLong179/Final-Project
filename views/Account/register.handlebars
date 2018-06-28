@@ -1,67 +1,78 @@
 <link rel="stylesheet" href="../assets/css/bootstrap.css">
 <link rel="stylesheet" href="../assets/css/sign-in.css">
 <link rel="stylesheet" href="../assets/css/style.css">
- 
+<script src='https://www.google.com/recaptcha/api.js'></script> {{#section 'css'}}
+<script src='https://www.google.com/recaptcha/api.js'></script>
 
-{{#section 'css'}}
-	<link rel="stylesheet" type="text/css" href="/assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
-{{/section}}
+<link rel="stylesheet" type="text/css" href="/assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"> {{/section}} {{#section 'js'}}
+<script src='https://www.google.com/recaptcha/api.js'></script>
 
-{{#section 'js'}}
-	<script src="/assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-	<script type="text/javascript">
-		$('#date').datepicker({
-			format: 'd/m/yyyy',
-			autoclose: true
-		});
-		function validate(){
-			
+<script src="/assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript">
+	$('#date').datepicker({
+		format: 'd/m/yyyy',
+		autoclose: true
+	});
+	function verifyCaptcha(){
+		    document.getElementById('g-recaptcha-error').innerHTML = '';
 
-			var userLen=$('#username1').val().length;
-			var passLen=$('#password1').val().length;
-			var confLen=$('#confpassword').val().length;
-			var flag=true;
-			if(userLen< 5){
-				$('.userError').show();
-				flag=false;
-			}
-			else{
-				$('.userError').hide();
-				
-			}
-			if(passLen<6){
-				$('.passError').show();
-				flag=false;
-				
+	}
+	function validate() {
 
-			}
-			else{
-				$('.passError').hide();
-				
-			}	
-			if(confLen<6){
-				$('.passError1').show();
-				flag=false;
-				
-			}
-			else{
-				$('.passError1').hide();
-				
-			}
-			if(passLen==confLen&&$('#password1').val()==$('#confpassword').val()){
-				$('.passError2').hide();
-			}
-			else{
-				$('.passError2').show();
-				flag=false;
-				
-				
-			}
-			return flag;
+
+
+		var userLen = $('#username1').val().length;
+		var passLen = $('#password1').val().length;
+		var confLen = $('#confpassword').val().length;
+		var flag = true;
+		var response = grecaptcha.getResponse();
+		console.log(response);
+		if (response.length === 0) {
+			document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">This field is required.</span>';
+
+			return false;
 		}
-			
-	</script>
-{{/section}}	
+		else if (userLen < 5) {
+			$('.userError').show();
+			flag = false;
+		}
+		else {
+			$('.userError').hide();
+
+		}
+		if (passLen < 6) {
+			$('.passError').show();
+			flag = false;
+
+
+		}
+		else {
+			$('.passError').hide();
+
+		}
+		if (confLen < 6) {
+			$('.passError1').show();
+			flag = false;
+
+		}
+		else {
+			$('.passError1').hide();
+
+		}
+		if (passLen == confLen && $('#password1').val() == $('#confpassword').val()) {
+			$('.passError2').hide();
+		}
+		else {
+			$('.passError2').show();
+			flag = false;
+
+
+		}
+
+		return flag;
+	}
+
+</script> {{/section}}
 
 <div class="container">
 	<div class="row">
@@ -83,7 +94,7 @@
 						<div class="col-lg-12">
 
 							<form id="register-form" action="register" method="post" role="form" onSubmit="return validate();">
-								
+
 								{{#if showErr1}}
 								<div class="userError alert alert-danger">
 									<strong>Warning! </strong>{{errorMsg1}}
@@ -91,10 +102,12 @@
 
 								{{/if}}
 								<div class="form-group">
-										<div class="input-group">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
-									<input type="text" name="username1" id="username1" tabindex="1" class="form-control" placeholder="Username" required value="" >
-								</div>
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="glyphicon glyphicon-user" aria-hidden="true"></i>
+										</span>
+										<input type="text" name="username1" id="username1" tabindex="1" class="form-control" placeholder="Username" required value="">
+									</div>
 
 								</div>
 								<div class="userError alert alert-danger" style="display:none;">
@@ -103,74 +116,87 @@
 
 								<div class="form-group">
 									<div class="input-group">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-									<input type="password" name="password1" id="password1" tabindex="2" class="form-control" required placeholder="Password" >
+										<span class="input-group-addon">
+											<i class="glyphicon glyphicon-lock"></i>
+										</span>
+										<input type="password" name="password1" id="password1" tabindex="2" class="form-control" required placeholder="Password">
+									</div>
 								</div>
-								</div>
-									<div class="passError alert alert-danger" style="display:none">
+								<div class="passError alert alert-danger" style="display:none">
 									<strong>Warning!</strong> The password must be at least 6 characters.
 								</div>
 								<p class="passError2 alert alert-danger " style="display:none">Two passwords do not match</p>
-								
+
 
 								<div class="form-group">
 									<div class="input-group">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-									<input type="password" required name="confpassword" id="confpassword" tabindex="3" class="form-control" placeholder="Confirm Password" >
-								</div>
+										<span class="input-group-addon">
+											<i class="glyphicon glyphicon-lock"></i>
+										</span>
+										<input type="password" required name="confpassword" id="confpassword" tabindex="3" class="form-control" placeholder="Confirm Password">
+									</div>
 
 								</div>
 								<div class="passError1 alert alert-danger" style="display:none">
 									<strong>Warning!</strong>The password must be at least 6 characters.
 								</div>
-								<p class="passError2 alert alert-danger " style="display:none">Two passwords do not match.</p>				
-								
+								<p class="passError2 alert alert-danger " style="display:none">Two passwords do not match.</p>
+
 
 								<div class="form-group">
 									<div class="input-group">
-										<span class="input-group-addon"><i class=" glyphicon glyphicon-user"></i></span>
-									<input type="text" name="fullname" id="name" placeholder="Your name" tabindex="4" required class="form-control">
+										<span class="input-group-addon">
+											<i class=" glyphicon glyphicon-user"></i>
+										</span>
+										<input type="text" name="fullname" id="name" placeholder="Your name" tabindex="4" required class="form-control">
 									</div>
 								</div>
 
 								{{#if showErr2}}
-								<div class="alert alert-danger" >
+								<div class="alert alert-danger">
 									<strong>Warning!</strong> {{errorMsg2}}
 								</div>
 								{{/if}}
 								<div class="form-group">
 									<div class="input-group">
-										<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-									<input type="email" name="email" id="email" tabindex="5" class="form-control" required placeholder="Email Address" value="" >
-										
+										<span class="input-group-addon">
+											<i class="glyphicon glyphicon-envelope"></i>
+										</span>
+										<input type="email" name="email" id="email" tabindex="5" class="form-control" required placeholder="Email Address" value="">
+
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="input-group">
-										<span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-									<input type="tel" name="phone" id="phone" class="form-control" tabindex="6" placeholder="Phone" value="" >
-										
+										<span class="input-group-addon">
+											<i class="glyphicon glyphicon-earphone"></i>
+										</span>
+										<input type="tel" name="phone" id="phone" class="form-control" tabindex="6" placeholder="Phone" value="">
+
 									</div>
 								</div>
-								
+
 								<div class="form-group">
 									<div class="input-group">
-										<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-									<input type="text" name="date" id="date" class="form-control" tabindex="7" placeholder="d/m/yyyy">
-										
+										<span class="input-group-addon">
+											<i class="glyphicon glyphicon-calendar"></i>
+										</span>
+										<input type="text" name="date" id="date" class="form-control" tabindex="7" placeholder="d/m/yyyy">
+
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="row">
 										<div class="col-sm-6 col-sm-offset-3">
-											<button type="submit" onclick="checkUserLength();" name="register-submit" id="register-submit" tabindex="8" class="form-control btn btn-register">Register</button>
+											<button type="submit" onclick="validateForm()" name="register-submit" id="register-submit" tabindex="8" class="form-control btn btn-register">Register</button>
 
 										</div>
 									</div>
 								</div>
-								<div class="form-group">
+								<div class="g-recaptcha " callback="verifyCaptcha" style="text-align:center" data-sitekey="6LfVD2EUAAAAAIsiVUH0tS23kWJeE_oMzNgxQyZ5"></div>
+								<br>
+								<div id="g-recaptcha-error"></div>
 
-								</div>
 							</form>
 						</div>
 					</div>
@@ -179,6 +205,7 @@
 		</div>
 	</div>
 </div>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 
 <script src="../assets/jquery-3.3.1.min.js"></script>
 <script src="../assets/js/bootstrap.js"></script>

@@ -5,7 +5,7 @@ exports.load = sql => {
             host: 'localhost',
            // port: 3306,
             user: 'root',
-            password: 'password',
+            password: '11111',
             database: 'wine',
             //insecureAuth: true
         });
@@ -30,7 +30,7 @@ exports.save = sql => {
         var cn = mysql.createConnection({
             host: 'localhost',
             user: 'root',
-            password: 'password',
+            password: '11111',
             database: 'wine',
             insecureAuth: true
         });

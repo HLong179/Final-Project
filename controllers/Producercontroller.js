@@ -43,14 +43,14 @@ router.get('/:Id',(req,res)=>{
 });
 
 router.get('/account/signout',(req,res)=>{
-         console.log(req.url);
-      const returnlink    = new URL(req.headers.referer).pathname;
+    //      console.log(req.url);
+    //   const returnlink    = new URL(req.headers.referer).pathname;
       
-      req.session.returnlink = returnlink;
+    //   req.session.returnlink = returnlink;
   
-     req.session.isLogged=false;
+    //  req.session.isLogged=false;
     
-     res.redirect(res.session.returnlink);
+     res.redirect('/account/signin');
   
   });
 module.exports= router;
