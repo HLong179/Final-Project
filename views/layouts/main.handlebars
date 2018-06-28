@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Example App</title>
+	<title>Bodega</title>
 	<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="/assets/css/index.css"> {{{_sections.css}}}
@@ -26,37 +26,37 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#">Bodega</a>
+						<a class="navbar-brand" href="/">Bodega</a>
 					</div>
 					<div class="collapse navbar-collapse" id="myNavbar">
 						<ul class="nav navbar-nav">
-							<li id="Home" class="active">
-								<a href="/">Home</a>
+							<li id="Home">
+								<a class="a-text" href="/">Home</a>
 							</li>
 							<li id="Product">
-								<a href="#" data-toggle="dropdown" class="dropdown-toggle" data-toggle="dropdown-toggle">
+								<a href="#" data-toggle="dropdown" class="dropdown-toggle a-text" data-toggle="dropdown-toggle">
 									Products
-									<span class="glyphicon glyphicon-triangle-bottom" style="color: lightgray"></span>
+									<span class="glyphicon glyphicon-triangle-bottom"></span>
 								</a>
 								<div class=" navbar-nav dropdown-menu">
 									{{#each layoutVM.color}}
-									<a id="{{color_id}}" class="producer-link" href="/products/{{color_id}}">{{color_name}}</a>
+									<a id="{{color_id}}" class="producer-link a-text" href="/products/{{color_id}}">{{color_name}}</a>
 									{{/each}}
 								</div>
 							</li>
 							<li class="navbar-nav dropdown">
-								<a href="#" data-toggle="dropdown" class="dropdown-toggle" data-toggle="dropdown-toggle">
+								<a href="#" data-toggle="dropdown" class="dropdown-toggle a-text" data-toggle="dropdown-toggle">
 									Suppliers
-									<span class="glyphicon glyphicon-triangle-bottom" style="color: lightgray"></span>
+									<span class="glyphicon glyphicon-triangle-bottom"></span>
 								</a>
 								<div class=" navbar-nav dropdown-menu">
 									{{#each layoutVM.brand}}
-									<a id="{{brand_id}}" class="producer-link" href="/producer/{{brand_id}}">{{brand_name}}</a>
+									<a id="{{brand_id}}" class="producer-link a-text" href="/producer/{{brand_id}}">{{brand_name}}</a>
 									{{/each}}
 								</div>
 							</li>
 							<li id="contacts">
-								<a href="/contact">Contact</a>
+								<a href="/contact" class="a-text">Contact</a>
 							</li>
 
 						</ul>
@@ -73,27 +73,26 @@
 						<ul class="nav navbar-nav navbar-right">
 							{{#if layoutVM.isLogged}}
 							<li id="after" class="navbar-nav dropdown">
-								<a href="#" data-toggle="dropdown" class="dropdown-toggle" data-toggle="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Hi
+								<a href="#" data-toggle="dropdown" class="dropdown-toggle a-text" data-toggle="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Hi
 									<strong>{{name}}</strong>!
 									<span class="glyphicon glyphicon-triangle-bottom" style="color: lightgray"></span>
 								</a>
 								<div class=" navbar-nav dropdown-menu">
-									<a href="/account/profile" class="producer-link" id="profile">
+									<a href="/account/profile" class="producer-link a-text" id="profile">
 										<span class="glyphicon glyphicon-user" style="color: lightgray"></span>&nbspMy profile</a>
-									<a href="/account/signout" class="producer-link" id="log_out">
+									<a href="/account/signout" class="producer-link a-text" id="log_out">
 										<span class="glyphicon glyphicon-log-out" style="color: lightgray"></span>&nbspLog out</a>
 								</div>
 							</li>
 
 							<li class="navbar-right">
 								{{#if AdminVM.isAdmin}}
-								<a href="/cart/Order" title="Order List">
+								<a href="/cart/Order" title="Order List" class="cart-contain">
 									<button class=" btn btn-default glyphicon glyphicon-shopping-cart shopcart cart  "></button>
 								</a>
 								{{else}}
-								<a href="/cart" title="Cart">
-									<button class=" btn btn-default glyphicon glyphicon-shopping-cart shopcart cart ">
-										<span class="badge">{{layoutVM.sumcart}}</span>
+								<a href="/cart" title="Cart" class="cart-contain">
+									<button class=" btn btn-default glyphicon glyphicon-shopping-cart shopcart cart "><span class="badge">{{layoutVM.sumcart}}</span>
 									</button>
 								</a>
 								{{/if}}
@@ -102,20 +101,20 @@
 							{{else}}
 
 							<li id="before">
-								<a href="/account/signin">Sign In&nbsp
+								<a href="/account/signin" class="a-text">Sign In&nbsp
 									<span class="glyphicon glyphicon glyphicon-log-in"></span>
 								</a>
 
 							</li>
 							<li id="after" style="display:none" class="navbar-nav dropdown">
-								<a href="#" data-toggle="dropdown" class="dropdown-toggle" data-toggle="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Hi &nbsp
+								<a href="#" data-toggle="dropdown" class="dropdown-toggle a-text" data-toggle="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Hi &nbsp
 									<strong>{{name}}</strong>!
 									<span class="glyphicon glyphicon-triangle-bottom" style="color: lightgray"></span>
 								</a>
 								<div class=" navbar-nav dropdown-menu">
-									<a href="HTML/profile.html" class="producer-link" id="profile">
+									<a href="HTML/profile.html" class="producer-link a-text" id="profile">
 										<span class="glyphicon glyphicon-user" style="color: lightgray"></span>&nbspMy profile</a>
-									<a href="HTML/sign-in.html" class="producer-link" id="log_out">
+									<a href="HTML/sign-in.html" class="producer-link a-text" id="log_out">
 										<span class="glyphicon glyphicon-log-out" style="color: lightgray"></span>&nbspLog out</a>
 								</div>
 							</li>
