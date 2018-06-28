@@ -10,15 +10,19 @@ router.get('/', checkadmin, (req,res)=>{
 
     productrepo.loadFeatured().then(rows1=>{
         productrepo.loadBestSell().then(rows2=>{
-            var vm ={
-                featured_products: rows1,
-                bestsell_products:rows2,
-                name: ''
-            }
-            if(req.session.isLogged == true){
-                vm.name = req.session.user.name;
-            }
-            res.render('./Home/home',vm);
+            productrepo.loadNewest().then((rows3)=>{
+                var vm ={
+                    featured_products: rows1,
+                    bestsell_products:rows2,
+                    newest_products: rows3,
+                    name: ''
+                }
+                if(req.session.isLogged == true){
+                    vm.name = req.session.user.name;
+                }
+                res.render('./Home/home',vm);
+            })
+           
         });
     });
   

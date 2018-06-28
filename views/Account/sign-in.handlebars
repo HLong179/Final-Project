@@ -1,21 +1,16 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="/assets/css/sign-in.css">
+{{/section}}
 
+{{#section 'js'}}
+<script src="/assets/js/sign-in.js"></script>
+{{/section}}
  {{#if showError}}
 <div class="alert alert-danger">
 	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 	<strong>Title!</strong> {{errorMsg}}
 </div>
 {{/if}}
-
-
-
-
-
-<title>
-	Sign In</title>
-<link rel="stylesheet" href="../assets/css/bootstrap.css">
-<link rel="stylesheet" href="../assets/css/sign-in.css">
-<link rel="stylesheet" href="../assets/css/style.css">
-
 
 <div class="container">
 	<div class="row">
@@ -24,7 +19,7 @@
 				<div class="panel-heading">
 					<div class="row">
 						<div class="col-xs-6">
-							<a href="#" class="active" id="login-form-link">Login</a>
+							<a href="signin" class="active" id="login-form-link">Login</a>
 						</div>
 						<div class="col-xs-6">
 							<a href="register" id="register-form-link">Register</a>
@@ -75,6 +70,3 @@
 		</div>
 	</div>
 </div>
-<script src="../assets/jquery-3.3.1.min.js"></script>
-<script src="../assets/js/bootstrap.js"></script>
-<script src="../assets/js/sign-in.js"></script>

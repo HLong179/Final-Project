@@ -46,7 +46,6 @@ router.get('/:Id',(req,res)=>{
 
 });
 router.get('/account/signin',(req, res)=>{
-    console.log(req.url);
     res.redirect(req.url);
 })
 

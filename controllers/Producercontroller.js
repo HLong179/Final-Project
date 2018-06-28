@@ -34,10 +34,8 @@ router.get('/:Id',(req,res)=>{
         }
         res.render('./Wine/Producer',vm);
     });
-    console.log(req.url);
+   
     router.get('/account/signin',(req,res)=>{
-
-        console.log(req.url);
         res.redirect(req.url);
     })     
 });

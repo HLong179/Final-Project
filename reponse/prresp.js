@@ -15,12 +15,17 @@ exports.loadProduct = () => {
 }
 
 exports.loadFeatured = () => {
-    var sql = 'SELECT * FROM product order by n_views DESC limit 12;';
+    var sql = 'SELECT * FROM product order by n_views DESC limit 10;';
     return db.load(sql);
 }
 
 exports.loadBestSell = () => {
-    var sql = 'SELECT * FROM product order by n_purchases DESC limit 12;'
+    var sql = 'SELECT * FROM product order by n_purchases DESC limit 10;'
+    return db.load(sql);
+}
+
+exports.loadNewest=()=>{
+    var sql=`select * from product order by date_added DESC limit 10`;
     return db.load(sql);
 }
 

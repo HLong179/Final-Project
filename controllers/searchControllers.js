@@ -10,7 +10,8 @@ router.post('/',(req,res)=>{
                 var vm={
                     Products: _Products,
                     Brands: _Brands,
-                    Colors: _Colors
+                    Colors: _Colors,
+                    ping: string
                 }
                 res.render('search/index',vm);
             })

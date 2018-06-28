@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var SHA256 = require('crypto-js/sha256');
 var moment = require('moment');
 var account = require('../reponse/account');
-var request = require('request');
+//var request = require('request');
 
 const URL = require('url').URL;
 
@@ -68,7 +68,7 @@ router.get('/signout', (req, res) => {
     //res.redirect('/');
 
     //  //console.log(req.session);
-     res.redirect('/');
+    res.redirect('/account/signin');
 });
 
 // router.post('/signout', (req, res) => {
@@ -198,7 +198,7 @@ router.post('/register', (req, res) => {
             console.log('đã trùng');
             var vm = {
                 showErr1: true,
-                errorMsg1: 'Username existed'
+                errorMsg1: 'Username exited'
             }
 
             res.render('Account/register', vm);

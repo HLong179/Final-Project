@@ -1,5 +1,6 @@
+
 <div class="container text-center">
-    <h2>Search Result:</h2>
+    <h2>Search Result For: <i style="font-size:30px; color:chocolate">"{{ping}}"</i></h2>
     <br><hr>
     
     {{#if Products}}
@@ -26,8 +27,8 @@
     <h3>Brands:</h3>
     {{#each Brands}}
     <br>
-    <div  style="font-weight:bold; size:20px; color:dodgerblue">
-        <a href="/producer/{{brand_id}}">{{brand_name}}</a>
+    <div  >
+        <a style="font-weight:bold; font-size:20px; color:dodgerblue" href="/producer/{{brand_id}}">{{brand_name}}</a>
     </div>
     <br>
 
@@ -38,8 +39,8 @@
     <h3>Colors:</h3>
     {{#each Colors}}
     <br>
-    <div style="font-weight:bold; size:20px; color:dodgerblue">
-        <a href="/products/{{color_id}}">{{color_name}}</a>
+    <div>
+        <a  style="font-weight:bold; font-size:30px; color:dodgerblue" href="/products/{{color_id}}">{{color_name}}</a>
     </div>
     <br>
     {{/each}}

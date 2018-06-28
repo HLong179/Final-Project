@@ -127,8 +127,8 @@
 
 <div class="container">
 	<div class="container" style="text-align:center; font-size:40px; font-weight:bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">---Featured---</div>
-	{{#each featured_products}}
-	<div class="col-md-4 col-sm-4 prd">
+	{{#each newest_products}}
+	<div class="col-md-6 col-sm-6 prd">
 		<a  class="thumbnail  ">
 			<a href="home/productinfo/{{p_name}}" style="border:1px;">
 				<img class="image" title="Click for Details" src="/sp/{{p_id}}/wine.jpg" alt="{{Name}}">
@@ -157,8 +157,8 @@
 <div class="container">
 	<div class="container" style="text-align:center; font-size:40px; font-weight:bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">---TopViews---</div>
 	{{#each featured_products}}
-	<div class="col-md-4">
-			
+	<div class="col-md-6 col-sm-6 prd">
+			<a class="thumbnail">
 			<a href="home/productinfo/{{p_name}}" style="border:1px;">
 				<img class="image" title="Click for Details" src="/sp/{{p_id}}/wine.jpg" alt="{{Name}}">
 			</a>
@@ -176,7 +176,7 @@
 				<br>
 				<div class="divname">{{p_name}}</div>
 			</div>
-		
+		</a>
 	</div>
 	{{/each}}
 </div>
@@ -184,7 +184,7 @@
 <div class="container">
 	<div class="container" style="text-align:center; font-size:40px; font-weight:bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">---TopSell---</div>
 	{{#each bestsell_products}}
-	<div class="col-md-4 col-sm-4 prd">
+	<div class="col-md-6 col-sm-6 prd">
 			<a  class="thumbnail  ">
 			<a href="home/productinfo/{{p_name}}" style="border:1px;">
 				<img class="image" title="Click for Details" src="/sp/{{p_id}}/wine.jpg" alt="{{Name}}">
