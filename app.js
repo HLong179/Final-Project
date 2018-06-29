@@ -83,6 +83,6 @@ var option={
 var sessionStore=new MySQLStore(option);
 
 
-var server= app.listen(8000, function(){
+var server= app.listen(process.env.PORT||8000, function(){
     console.log('server is running on port :' +server.address().port);
 });
