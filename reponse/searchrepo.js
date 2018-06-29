@@ -1,7 +1,7 @@
 var db= require('../fn/db');
 
 exports.SearchProduct= string=>{
-    var sql=`select p_id, p_name from product where p_name like '%${string}%' or price = +${string}`;
+    var sql=`select p_id, p_name from product where p_name like '%${string}%' or price = '${string}'`;
     return db.load(sql);
 }
 
