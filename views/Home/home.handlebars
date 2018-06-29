@@ -139,11 +139,14 @@
 				<div class="row">
 					<b class="divcost text-left">{{price}}$ &nbsp &nbsp</b>
 					{{#if ../layoutVM.isLogged}}
+					{{#if ../AdminVM.isAdmin}}
+					{{else}}
 					<i class="text-right">
 							<button data-proid="{{p_name}}"  class="Addcart" title="Add to cart">+
 								<span class="glyphicon glyphicon-shopping-cart"></span>
 							</button>
 					</i>
+					{{/if}}
 					{{/if}}
 				</div>
 				<br>
@@ -166,11 +169,14 @@
 				<div class="row">
 					<b class="divcost text-left">{{price}}$ &nbsp &nbsp</b>
 					{{#if ../layoutVM.isLogged}}
+					{{#if ../AdminVM.isAdmin}}
+					{{else}}
 					<i class="text-right">
 							<button data-proid="{{p_name}}"  class="Addcart" title="Add to cart">+
 								<span class="glyphicon glyphicon-shopping-cart"></span>
 							</button>
 					</i>
+					{{/if}}
 					{{/if}}
 				</div>
 				<br>
@@ -195,12 +201,14 @@
 				<div class="row">
 					<b class="divcost text-left">{{price}}$ &nbsp &nbsp</b>
 					{{#if ../layoutVM.isLogged}}
+					{{#if ../AdminVM.isAdmin}}
+					{{else}}
 					<i class="text-right">
-							<button data-proid="{{p_name}}" class="Addcart" title="Add to cart">
-								<b><span class="glyphicon glyphicon-shopping-plus"></span></b>
+							<button data-proid="{{p_name}}"  class="Addcart" title="Add to cart">+
 								<span class="glyphicon glyphicon-shopping-cart"></span>
 							</button>
 					</i>
+					{{/if}}
 					{{/if}}
 				</div>
 				<br>

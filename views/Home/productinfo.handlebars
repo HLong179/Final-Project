@@ -30,7 +30,11 @@
 								<b>$ &nbsp</b>
 								<div id="price">{{price}}</div>
 								{{#if ../layoutVM.isLogged}}
+								{{#if ../AdminVM.isAdmin}}
+								{{else}}
+
 						<button type="button" id="cart-btn" class="btn btn-info">Add to cart</button>
+						{{/if}}
 						{{/if}}
 						</div>
 						
