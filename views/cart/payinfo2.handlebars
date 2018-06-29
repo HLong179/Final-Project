@@ -1,60 +1,67 @@
+<link rel="stylesheet" href="/assets/css/bootstrap.css">
+
 {{#section 'js'}}
-<script>
+<script src="/assets/jquery-3.3.1.min.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<script type="text/javascript">
 
     $('#order').click(function () {
         var x= document.getElementById('menubank').value;
         $('#txtbank').val(x);
         $('#forminfo').submit();
     })
-</script> {{/section}}
+    
+</script>
+ {{/section}}
+
 <div class="panel panel-login inforCOD" style="background-color: wheat; ">
     <div class="panel-body">
 
 
-        <form action="/cart/Order" method="POST" id="forminfo">
+        <form action="/cart/Order" onSubmit="return validateForm();" method="POST" id="forminfo">
             <h4>Enter your Information:</h4>
             <hr>
             <input type="hidden" name="method" id="txtmethod" value="{{method}}">
             <div class="text-center">
                 <div class="form-group row">
-                    <label class="col-md-4" style="text-align: right;" for="">Name:</label>
-                    <div class="col-md-8">
-                        <input type="text" name="name" placeholder=" &nbsp Your Name">
+                    <label class="col-md-5" style="text-align: center;" for="">Name:</label>
+                    <div class="col-md-4">
+                        <input class="form-control" tabindex="1" type="text" name="name" placeholder=" &nbsp Your Name" required>
                     </div>
                 </div>
                 <br>
                 <div class="form-group row">
-                    <label class="col-md-4" style="text-align: right;" for="">Phone:</label>
-                    <div class="col-md-8">
-                        <input type="text" name="phone" placeholder=" &nbsp Your Phone">
+                    <label class="col-md-5" style="text-align: center;" for="">Phone:</label>
+                    <div class="col-md-4">
+                        <input class="form-control" tabindex="2" type="text" name="phone" placeholder=" &nbsp Your Phone" required>
                     </div>
                 </div>
                 <br>
                 <div class="form-group row">
-                    <label class="col-md-4" style="text-align: right;" for="">Province:</label>
-                    <div class="col-md-8">
-                        <input type="text" name="province" placeholder="&nbsp Your Province">
+                    <label class="col-md-5" style="text-align: center;" for="">Province:</label>
+                    <div class="col-md-4">
+                        <input class="form-control" tabindex="3" type="text" name="province" placeholder="&nbsp Your Province">
                     </div>
                 </div>
                 <br>
                 <div class="form-group row">
-                    <label class="col-md-4" style="text-align: right;" for="">District:</label>
-                    <div class="col-md-8">
-                        <input type="text" name="district" placeholder=" &nbsp Your District">
+                    <label class="col-md-5" style="text-align: center;" for="">District:</label>
+                    <div class="col-md-4">
+                        <input class="form-control" tabindex="4" type="text" name="district" placeholder=" &nbsp Your District" required>
                     </div>
                 </div>
                 <br>
                 <div class="form-group row">
-                    <label class="col-md-4" style="text-align: right;" for="">Street:</label>
-                    <div class="col-md-8">
-                        <input type="text" name="street" placeholder=" &nbsp Your Street">
+                    <label class="col-md-5" style="text-align: center;" for="">Street:</label>
+                    <div class="col-md-4">
+                        <input class="form-control" tabindex="5" type="text" name="street" placeholder=" &nbsp Your Street" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-4" style="text-align: right;" for="">Bank:</label>
-                    <div class="col-md-7">
-                        <select name="" id="menubank">
+                    <label class="col-md-5" style="text-align: center;" for="">Bank:</label>
+                    <div class="col-md-4">
+                        <select class="form-control" name="" id="menubank">
                             <option value="OceanBank">
                                 OceanBank
                             </option>
@@ -67,14 +74,14 @@
                         </select>
                     </div>
               
-                        <input type="hidden" id="txtbank" name="bank">
+                        <input  class="form-control" type="hidden" id="txtbank" name="bank">
             
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-4" style="text-align: right;" for="">ATM number:</label>
-                    <div class="col-md-8">
-                        <input type="text" name="ATM" placeholder=" &nbsp Your ATM number">
+                    <label class="col-md-5" style="text-align: center;" for="">ATM number:</label>
+                    <div class="col-md-4">
+                        <input tabindex="6" class="form-control" type="text" name="ATM" placeholder=" &nbsp Your ATM number">
                     </div>
                 </div>
 
@@ -82,7 +89,7 @@
 
             </div>
             <hr>
-            <button id="order" style=";margin-left: 80%; background-color: coral" class="btn-lg">
+            <button id="order" style=";margin-left: 65%; background-color: coral" class="btn-lg">
                 Order
             </button>
         </form>
