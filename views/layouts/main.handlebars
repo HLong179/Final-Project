@@ -83,7 +83,7 @@
 							{{#if layoutVM.isLogged}}
 							<li id="after" class="navbar-nav dropdown">
 								<a href="#" data-toggle="dropdown" class="dropdown-toggle a-text" data-toggle="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Hi
-									<strong>{{name}}</strong>!
+									<strong>{{layoutVM.curUser.name}}</strong>!
 									<span class="glyphicon glyphicon-triangle-bottom" style="color: lightgray"></span>
 								</a>
 								<div class=" navbar-nav dropdown-menu">
@@ -114,18 +114,6 @@
 									<span class="glyphicon glyphicon glyphicon-log-in"></span>
 								</a>
 
-							</li>
-							<li id="after" style="display:none" class="navbar-nav dropdown">
-								<a href="#" data-toggle="dropdown" class="dropdown-toggle a-text" data-toggle="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Hi &nbsp
-									<strong>{{name}}</strong>!
-									<span class="glyphicon glyphicon-triangle-bottom" style="color: lightgray"></span>
-								</a>
-								<div class=" navbar-nav dropdown-menu">
-									<a href="HTML/profile.html" class="producer-link a-text" id="profile">
-										<span class="glyphicon glyphicon-user" style="color: lightgray"></span>&nbspMy profile</a>
-									<a href="HTML/sign-in.html" class="producer-link a-text" id="log_out">
-										<span class="glyphicon glyphicon-log-out" style="color: lightgray"></span>&nbspLog out</a>
-								</div>
 							</li>
 							{{/if}}
 

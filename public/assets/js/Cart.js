@@ -1,10 +1,16 @@
 
 $('.removeitem').click(function () {
-    var id = $(this).data('proid');
+    if(confirm('Do you want to remove item?')){
+        var id = $(this).data('proid');
     $('#txtid').val(id);
     $('#formremove').submit();
-})
 
+    }
+    else{
+        return false;
+    }
+ 
+})
 $('#Pay').click(function () {
     $('.paymentcontent').show(400);
 })

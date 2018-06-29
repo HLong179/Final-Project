@@ -1,53 +1,69 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/assets/css/bootstrap.css">
 {{#section 'js'}}
-<script>
+<script src="/assets/jquery-3.3.1.min.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<script type="text/javascript">
+
     $('#order').click(function(){
         $('#forminfo').submit();
-    })
+    });
+
 </script>
 {{/section}}
 <div class="panel panel-login inforCOD" style="background-color: wheat; ">
 	<div class="panel-body">
 
 
-		<form action="/cart/Order" method="POST" id="forminfo">
+		<form action="/cart/Order" onSubmit="return validateForm();" method="POST" id="forminfo">
 			<h4>Enter your Information:</h4>
 			<hr>
             <input type="hidden" name="method" id="txtmethod" value="{{method}}">
 			<div class="text-center">
 				<div class="form-group row">
-					<label class="col-md-4" style="text-align: right;" for="">Name:</label>
-					<div class="col-md-8">
-						<input type="text" name="name" placeholder=" &nbsp Your Name">
+					<label class="col-md-5" style="text-align: center;" for="">Name:</label>
+					<div class="col-md-4 ">
+						<input class="form-control" type="text" class="namex" name="name" placeholder=" &nbsp Your Name" required>
 					</div>
+					<div class="col-md-3"></div>
+
 				</div>
 				<br>
 				<div class="form-group row">
-					<label class="col-md-4" style="text-align: right;" for="">Phone:</label>
-					<div class="col-md-8">
-						<input type="text" name="phone" placeholder=" &nbsp Your Phone">
+					<label class="col-md-5" style="text-align: center;" for="">Phone:</label>
+					<div class="col-md-4">
+						<input class="form-control" required type="text" name="phone" placeholder=" &nbsp Your Phone" required>
 					</div>
+					<div class="col-md-3"></div>
 				</div>
 				<br>
 				<div class="form-group row">
-					<label class="col-md-4" style="text-align: right;" for="">Province:</label>
-					<div class="col-md-8">
-						<input type="text" name="province" placeholder="&nbsp Your Province">
+					<label class="col-md-5" style="text-align: center;" for="">Province:</label>
+					<div class="col-md-4">
+						<input class="form-control" required type="text" name="province" placeholder="&nbsp Your Province" required>
 					</div>
+					<div class="col-md-3"></div>
+
 				</div>
 				<br>
 				<div class="form-group row">
-					<label class="col-md-4" style="text-align: right;" for="">District:</label>
-					<div class="col-md-8">
-						<input type="text" name="district" placeholder=" &nbsp Your District">
+					<label class="col-md-5" style="text-align: center;" for="">District:</label>
+					<div class="col-md-4">
+						<input class="form-control" type="text" name="district" placeholder=" &nbsp Your District" required>
 					</div>
+					<div class="col-md-3"></div>
+
 				</div>
 				<br>
 				<div class="form-group row">
-					<label class="col-md-4" style="text-align: right;" for="">Street:</label>
-					<div class="col-md-8">
-						<input type="text" name="street" placeholder=" &nbsp Your Street">
+					<label class="col-md-5" style="text-align: center;" for="">Street:</label>
+					<div class="col-md-4">
+						<input class="form-control" type="text" class="form-control" name="street" placeholder=" &nbsp Your Street" required>
 					</div>
+					<div class="col-md-3"></div>
+
 				</div>
+
                 {{!-- {{#if !flag}}
                 <div class="form-group row">
 					<label class="col-md-4" style="text-align: right;" for="">ATM number:</label>
@@ -58,8 +74,8 @@
                 {{/if}} --}}
 				
 				<div class="form-group row">
-					<label class="col-md-4" style="text-align: right;" for="">Adress Type:</label>
-					<div class="col-md-7">
+					<label class="col-md-5" style="text-align: center;" for="">Adress Type:</label>
+					<div class="col-md-7" style="text-align:left;">
 						<label class="radio-inline">
 							<input type="radio" name="optradio">Company</label>
 						<label class="radio-inline">
@@ -68,7 +84,7 @@
 				</div>
 			</div>
 			<hr>
-            <button id="order" style=";margin-left: 80%; background-color: coral" class="btn-lg">
+            <button id="order" style="margin-left: 65%; background-color: coral" class="btn-lg">
 				Order
 			</button>
 		</form>
