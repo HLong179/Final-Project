@@ -20,9 +20,6 @@
 
 	}
 	function validate() {
-
-
-
 		var userLen = $('#username1').val().length;
 		var passLen = $('#password1').val().length;
 		var confLen = $('#confpassword').val().length;
@@ -30,7 +27,7 @@
 		var response = grecaptcha.getResponse();
 		console.log(response);
 		if (response.length === 0) {
-			document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">This field is required.</span>';
+			document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">Please select captcha.</span>';
 
 			return false;
 		}
@@ -188,7 +185,7 @@
 									</div>
 								</div>
 								<br>
-								<div class="g-recaptcha text-center" callback="verifyCaptcha" data-sitekey="6LfVD2EUAAAAAIsiVUH0tS23kWJeE_oMzNgxQyZ5"></div>
+								<div class="g-recaptcha text-center" data-callback="verifyCaptcha" data-sitekey="6LfVD2EUAAAAAIsiVUH0tS23kWJeE_oMzNgxQyZ5"></div>
 								<br>
 								<div id="g-recaptcha-error"></div>
 								<div class="form-group">
