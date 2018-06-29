@@ -62,7 +62,7 @@ exports.LoadPurchaseOrderbyUser= id=>{
     return db.load(sql);
 }
 exports.LoadAllPurchaseOrder=()=>{
-    var sql=`select * from purchase_order`;
+   var sql=`select * from purchase_order order by order_date DESC`;
     return db.load(sql);
 }
 
