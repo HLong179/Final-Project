@@ -2,7 +2,7 @@ var mysql = require('mysql');
 exports.load = sql => {
     return new Promise((resolve, reject) => {
         var cn = mysql.createConnection({
-           host: 'sql3.freemysqlhosting.net',
+           host: sql3.freemysqlhosting.net,
             port: 3306,
             user: 'sql3245172',
             password: '9xZW9l5v3F',
@@ -28,7 +28,7 @@ exports.load = sql => {
 exports.save = sql => {
     return new Promise((resolve, reject) => {
         var cn = mysql.createConnection({
-            host: 'sql3.freemysqlhosting.net',
+            host: sql3.freemysqlhosting.net,
             port: 3306,
             user: 'sql3245172',
             password: '9xZW9l5v3F',
