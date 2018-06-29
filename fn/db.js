@@ -1,54 +1,21 @@
-var mysql = require('mysql');
-exports.load = sql => {
-    return new Promise((resolve, reject) => {
-        var cn = mysql.createConnection({
-           host: sql3.freemysqlhosting.net,
-            port: 3306,
-            user: 'sql3245172',
-            password: '9xZW9l5v3F',
-            database: 'sql3245172',
-            //insecureAuth: true
-        });
 
+const { Client } = require('pg');
 
-        cn.connect();
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
+});
 
-        cn.query(sql, function(error, rows, fields) {
-            if (error) {
-            	reject(error);
-            } else {
-                resolve(rows);
-            }
-
-            cn.end();
-        });
-    });
-}
-
-exports.save = sql => {
-    return new Promise((resolve, reject) => {
-        var cn = mysql.createConnection({
-            host: sql3.freemysqlhosting.net,
-            port: 3306,
-            user: 'sql3245172',
-            password: '9xZW9l5v3F',
-            database: 'sql3245172',
-            insecureAuth: true
-        });
-
-        cn.connect();
-
-        cn.query(sql, function(error, value) {
+client.connect();
+        client.query(sql, function(error, value) {
             if (error) {
                 reject(error);
             } else {
                 resolve(value);
             }
 
-            cn.end();
+            client.end();
         });
-    });
-}
 
 
 // var mongodb = require('mongodb');
